@@ -137,7 +137,7 @@
 }
 
 .contact__submit {
-  background: #25d366;
+  background: var(--navy);
   color: var(--white);
   border: none;
   padding: 0.9rem 2rem;
@@ -152,9 +152,37 @@
   margin-top: 0.4rem;
 }
 
-.contact__submit:hover {
-  background: #1dba58;
+.contact__submit:hover:not(:disabled) {
+  background: var(--navy-light);
   transform: translateY(-2px);
+}
+
+.contact__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.contact__error {
+  font-size: 0.85rem;
+  color: #c0392b;
+  background: #fdf2f2;
+  border: 1px solid #f5c6c6;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
 }
 
 .contact__success {
@@ -165,18 +193,15 @@
 .contact__success-icon {
   width: 72px;
   height: 72px;
-  background: #25d366;
+  background: #22c55e;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
   margin: 0 auto 1.5rem;
-}
-
-.contact__success-icon svg {
-  width: 36px;
-  height: 36px;
 }
 
 .contact__success h3 {
@@ -195,18 +220,19 @@
 
 .contact__resend {
   background: none;
-  border: 1.5px solid #25d366;
-  color: #1dba58;
+  border: 1.5px solid var(--navy);
+  color: var(--navy);
   padding: 0.6rem 1.4rem;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  margin-top: 0.5rem;
 }
 
 .contact__resend:hover {
-  background: #25d366;
+  background: var(--navy);
   color: white;
 }
 
