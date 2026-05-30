@@ -150,20 +150,23 @@
     justify-content: flex-start;
   }
 
-  /* Zoom out slightly so full face + shoulders visible */
+  /* Position face correctly: image is 2172×724 landscape.
+     On mobile (390×844) it scales up 1.17× → 2533px wide.
+     Face is ~20% from left of original = ~525px in scaled.
+     Use 16% so face lands near center of the 390px viewport. */
   .hero__bg {
-    object-position: 30% 20%;
+    object-position: 16% center;
     object-fit: cover;
   }
 
   /* Stronger bottom gradient on mobile */
   .hero__vignette-bottom {
-    height: 70%;
+    height: 72%;
     background: linear-gradient(
       to top,
       rgba(10, 10, 28, 0.98) 0%,
-      rgba(10, 10, 28, 0.82) 40%,
-      rgba(10, 10, 28, 0.3) 65%,
+      rgba(10, 10, 28, 0.85) 38%,
+      rgba(10, 10, 28, 0.4) 60%,
       transparent 100%
     );
   }
@@ -171,24 +174,38 @@
   .hero__content {
     width: 100%;
     max-width: 100%;
-    padding: 0 1.5rem 3rem;
+    padding: 0 1.5rem 3.5rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 8vw, 2.8rem);
   }
 
   .hero__subtitle {
     max-width: 100%;
-    font-size: 0.93rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.82);
   }
 }
 
 @media (max-width: 500px) {
   .hero__actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0.75rem;
   }
 
   .hero__btn {
     width: 100%;
     justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Ghost button more visible on mobile */
+  .hero__btn--ghost {
+    border-color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.06);
   }
 }
