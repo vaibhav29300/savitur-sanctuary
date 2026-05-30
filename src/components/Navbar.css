@@ -56,11 +56,13 @@
   transition: width 0.2s;
 }
 
-.navbar__link:hover {
+.navbar__link:hover,
+.navbar__link--active {
   color: var(--navy);
 }
 
-.navbar__link:hover::after {
+.navbar__link:hover::after,
+.navbar__link--active::after {
   width: 100%;
 }
 

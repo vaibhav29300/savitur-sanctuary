@@ -1,26 +1,29 @@
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Offerings from './components/Offerings'
-import PranicHealing from './components/PranicHealing'
-import Founder from './components/Founder'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import Courses from './pages/Courses'
+import Services from './pages/Services'
 import './App.css'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 
 function App() {
   return (
     <div className="app">
       <Navbar />
+      <ScrollToTop />
       <main>
-        <Hero />
-        <About />
-        <Offerings />
-        <PranicHealing />
-        <Founder />
-        <Testimonials />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
       </main>
       <Footer />
     </div>

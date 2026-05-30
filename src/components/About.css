@@ -77,10 +77,14 @@
   margin-bottom: 2rem;
 }
 
+.about__text + .about__text {
+  margin-top: -0.5rem;
+}
+
 .about__highlights {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.2rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
   background: var(--white);
