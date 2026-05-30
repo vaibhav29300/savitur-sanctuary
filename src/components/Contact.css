@@ -80,6 +80,15 @@
   font-weight: 500;
 }
 
+.contact__detail-link {
+  color: var(--navy);
+  transition: color 0.2s;
+}
+
+.contact__detail-link:hover {
+  color: var(--gold);
+}
+
 /* Map block */
 .contact__map {
   margin-top: 2rem;

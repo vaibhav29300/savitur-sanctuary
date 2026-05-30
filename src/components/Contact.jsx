@@ -121,6 +121,27 @@ export default function Contact() {
                 <div className="contact__detail-val">info@savitursanctuary.com</div>
               </div>
             </div>
+
+            <div className="contact__detail">
+              <div className="contact__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                </svg>
+              </div>
+              <div>
+                <div className="contact__detail-label">Instagram</div>
+                <a
+                  href="https://www.instagram.com/savitur.pranichealing/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact__detail-val contact__detail-link"
+                >
+                  @savitur.pranichealing
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Google Maps embed */}

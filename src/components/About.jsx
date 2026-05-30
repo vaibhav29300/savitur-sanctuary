@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './About.css'
 
 export default function About() {
@@ -50,9 +51,9 @@ export default function About() {
             </div>
           </div>
 
-          <a href="#offerings" className="about__link">
+          <Link to="/services" className="about__link">
             Explore Our Services <span>→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
