@@ -12,7 +12,7 @@ const offerings = [
     color: '#c9a84c',
     title: 'Healings',
     description: 'Personalised energy healing sessions to address physical, emotional, and psychological ailments using Pranic Healing techniques.',
-    link: '#contact',
+    link: '/contact',
     linkText: 'Book a Session',
   },
   {
@@ -26,7 +26,7 @@ const offerings = [
     color: '#5b6bbf',
     title: 'Meditations',
     description: 'Guided Twin Hearts Meditation sessions for peace, illumination, and planetary blessing — open to all levels.',
-    link: '#contact',
+    link: '/contact',
     linkText: 'Join a Session',
   },
   {
@@ -40,7 +40,7 @@ const offerings = [
     color: '#5b6bbf',
     title: 'Courses',
     description: 'Globally recognised Pranic Healing certification workshops — from Basic Pranic Healing to Advanced and Psychotherapy levels.',
-    link: '#contact',
+    link: '/contact',
     linkText: 'View Schedule',
   },
   {
@@ -54,7 +54,7 @@ const offerings = [
     color: '#c0392b',
     title: 'Free Camps',
     description: 'Community outreach healing camps offering complimentary basic Pranic Healing treatments — open to everyone.',
-    link: '#contact',
+    link: '/contact',
     linkText: 'Find a Camp',
   },
   {
@@ -69,7 +69,7 @@ const offerings = [
     color: '#2a7a5e',
     title: 'Nurturing Sessions',
     description: 'Supportive group or individual sessions focused on sustained healing, personal growth, and spiritual development.',
-    link: '#contact',
+    link: '/contact',
     linkText: 'Learn More',
   },
 ]

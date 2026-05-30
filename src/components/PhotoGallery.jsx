@@ -19,7 +19,7 @@ const photos = [
   },
   {
     src: '/gallery/gallery-4.jpg',
-    caption: 'Healing Workshop',
+    caption: 'Pranic Healing Class',
     desc: 'Hands-on Pranic Healing training at the Savitur centre',
   },
 ]

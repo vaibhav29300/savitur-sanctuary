@@ -35,15 +35,8 @@ export default function Contact() {
     const interest = searchParams.get('interest')
     if (!interest) return
     setForm(f => ({ ...f, service: interest }))
-    // Wait for render then smooth-scroll to the form
-    const timer = setTimeout(() => {
-      const el = document.getElementById('contact')
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 72
-        window.scrollTo({ top, behavior: 'smooth' })
-      }
-    }, 80)
-    return () => clearTimeout(timer)
+    // Scroll to top of the contact page so the form is in view
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [searchParams])
 
   const handleChange = (e) => {

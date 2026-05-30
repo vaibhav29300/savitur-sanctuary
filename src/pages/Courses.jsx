@@ -156,7 +156,7 @@ export default function Courses() {
             now available at Savitur, Bengaluru. All courses are taught by certified Pranic
             Healing instructors.
           </p>
-          <Link to="/#contact" className="courses-hero__cta">Enquire About Courses →</Link>
+          <Link to="/contact" className="courses-hero__cta">Enquire About Courses →</Link>
         </div>
       </div>
 

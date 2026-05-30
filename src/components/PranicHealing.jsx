@@ -53,27 +53,6 @@ export default function PranicHealing() {
           </p>
         </div>
 
-        <div className="pranic__stats">
-          <div className="pranic__stat">
-            <span className="pranic__stat-num">30+</span>
-            <span className="pranic__stat-label">Years of Research</span>
-          </div>
-          <div className="pranic__stat-divider" />
-          <div className="pranic__stat">
-            <span className="pranic__stat-num">100+</span>
-            <span className="pranic__stat-label">Countries Worldwide</span>
-          </div>
-          <div className="pranic__stat-divider" />
-          <div className="pranic__stat">
-            <span className="pranic__stat-num">27</span>
-            <span className="pranic__stat-label">Books by GMCKS</span>
-          </div>
-          <div className="pranic__stat-divider" />
-          <div className="pranic__stat">
-            <span className="pranic__stat-num">27</span>
-            <span className="pranic__stat-label">Language Translations</span>
-          </div>
-        </div>
       </div>
     </section>
   )

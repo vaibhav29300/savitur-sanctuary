@@ -41,10 +41,6 @@ export default function Founder() {
                 <span className="founder__date-label">Books</span>
                 <span className="founder__date-val">27 published works</span>
               </div>
-              <div className="founder__date-item">
-                <span className="founder__date-label">Reach</span>
-                <span className="founder__date-val">100+ countries</span>
-              </div>
             </div>
           </div>
 

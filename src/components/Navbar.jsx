@@ -7,7 +7,8 @@ const navLinks = [
   { label: 'About', to: '/#about' },
   { label: 'Courses', to: '/courses' },
   { label: 'Services', to: '/services' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Testimonials', to: '/testimonials' },
 ]
 
 export default function Navbar() {
@@ -69,13 +70,7 @@ export default function Navbar() {
               </NavLink>
             )
           })}
-          <Link to="/#contact" className="navbar__cta" onClick={() => {
-            setMenuOpen(false)
-            setTimeout(() => {
-              const el = document.getElementById('contact')
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }, 100)
-          }}>
+          <Link to="/contact" className="navbar__cta" onClick={() => setMenuOpen(false)}>
             Enquire
           </Link>
         </nav>

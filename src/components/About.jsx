@@ -32,25 +32,6 @@ export default function About() {
             the community.
           </p>
 
-          <div className="about__highlights">
-            <div className="about__highlight">
-              <h4>Holistic Approach</h4>
-              <p>Treating the energy body to heal the physical, emotional &amp; mental.</p>
-            </div>
-            <div className="about__highlight">
-              <h4>Expert Healers</h4>
-              <p>Trained in advanced Pranic Healing &amp; Arhatic Yoga techniques.</p>
-            </div>
-            <div className="about__highlight">
-              <h4>Community Service</h4>
-              <p>Free healing camps for those who need support.</p>
-            </div>
-            <div className="about__highlight">
-              <h4>Structured Courses</h4>
-              <p>Globally recognised Pranic Healing certification programmes.</p>
-            </div>
-          </div>
-
           <Link to="/services" className="about__link">
             Explore Our Services <span>→</span>
           </Link>

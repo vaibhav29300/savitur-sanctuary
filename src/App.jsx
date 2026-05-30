@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
 import Services from './pages/Services'
+import TestimonialsPage from './pages/TestimonialsPage'
+import ContactPage from './pages/ContactPage'
 import './App.css'
 
 function ScrollToTop() {
@@ -23,6 +25,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
       <Footer />

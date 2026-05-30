@@ -3,8 +3,6 @@ import About from '../components/About'
 import PhotoGallery from '../components/PhotoGallery'
 import PranicHealing from '../components/PranicHealing'
 import Founder from '../components/Founder'
-import Testimonials from '../components/Testimonials'
-import Contact from '../components/Contact'
 
 export default function Home() {
   return (
@@ -14,8 +12,6 @@ export default function Home() {
       <PhotoGallery />
       <PranicHealing />
       <Founder />
-      <Testimonials />
-      <Contact />
     </>
   )
 }
