@@ -144,55 +144,91 @@
   transform: translateY(-2px);
 }
 
+/* ─────────────────────────────────────────────────────
+   MOBILE: stacked layout — image on top, text below
+   The image is 3:1 landscape. Forcing it into a portrait
+   100vh container zooms in 1.17× and crops the face.
+   Instead we show the image at 50vh (natural scale) then
+   put the text on a dark panel below it.
+───────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero {
-    align-items: flex-end;
+    /* Let height be determined by children, not 100vh */
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    /* Stack children: image spacer → text panel */
+    align-items: flex-start;
     justify-content: flex-start;
+    flex-direction: column;
   }
 
-  /* Position face correctly: image is 2172×724 landscape.
-     On mobile (390×844) it scales up 1.17× → 2533px wide.
-     Face is ~20% from left of original = ~525px in scaled.
-     Use 16% so face lands near center of the 390px viewport. */
+  /* Image: constrained to 50vh so it isn't over-zoomed.
+     At 390px wide & 50vh tall, scale = 50vh/724 ≈ 0.58×
+     → image renders at 1260px wide, face lands at ~26%
+     from left — fully visible, no vertical cropping. */
   .hero__bg {
-    object-position: 16% center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;          /* don't stretch to bottom */
+    width: 100%;
+    height: 50vh;
     object-fit: cover;
+    object-position: 18% center;
   }
 
-  /* Stronger bottom gradient on mobile */
+  /* Narrow top vignette — just for navbar */
+  .hero__vignette-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+  }
+
+  /* Fade from image into the dark text panel */
   .hero__vignette-bottom {
-    height: 72%;
+    position: absolute;
+    top: 33vh;
+    left: 0;
+    right: 0;
+    height: 20vh;
     background: linear-gradient(
-      to top,
-      rgba(10, 10, 28, 0.98) 0%,
-      rgba(10, 10, 28, 0.85) 38%,
-      rgba(10, 10, 28, 0.4) 60%,
-      transparent 100%
+      to bottom,
+      transparent 0%,
+      var(--dark-bg) 100%
     );
+    pointer-events: none;
   }
 
+  /* Text panel: pushed below image, solid dark background */
   .hero__content {
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: 100%;
-    padding: 0 1.5rem 3.5rem;
+    margin-top: 48vh;       /* sits just below the image */
+    padding: 2rem 1.5rem 3.5rem;
+    background: var(--dark-bg);
   }
 
   .hero__title {
-    font-size: clamp(1.9rem, 8vw, 2.8rem);
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
   }
 
   .hero__subtitle {
     max-width: 100%;
-    font-size: 0.92rem;
+    font-size: 0.93rem;
     color: rgba(255, 255, 255, 0.82);
   }
-}
 
-@media (max-width: 500px) {
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.75rem;
+    gap: 0.8rem;
+    margin-top: 1.8rem;
   }
 
   .hero__btn {
@@ -202,10 +238,8 @@
     font-size: 0.95rem;
   }
 
-  /* Ghost button more visible on mobile */
   .hero__btn--ghost {
-    border-color: rgba(255, 255, 255, 0.55);
-    color: rgba(255, 255, 255, 0.92);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
   }
 }
