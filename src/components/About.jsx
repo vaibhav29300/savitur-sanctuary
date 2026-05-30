@@ -7,7 +7,7 @@ export default function About() {
         <div className="about__image-wrap">
           <img
             src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80"
-            alt="Pranic healing meditation"
+            alt="Savitur Pranic Healing Centre"
             className="about__image"
           />
           <div className="about__image-badge">
@@ -18,27 +18,40 @@ export default function About() {
 
         <div className="about__content">
           <p className="about__label">— About the Centre</p>
-          <h2 className="about__title">A Dedicated Space for Profound Rejuvenation</h2>
+          <h2 className="about__title">A Centre for Pranic Healing &amp; Arhatic Yoga</h2>
           <p className="about__text">
-            Established in 2024 in the serene locale of Kannamangala, Bengaluru, Savitur Pranic
-            Healing Center is a dedicated space for profound rejuvenation. Our mission is to spread
-            the light of Pranic Healing, offering a sanctuary where individuals can find balance,
-            peace, and restored vitality through ancient energy techniques applied in a modern context.
+            Savitur is a Centre for Pranic Healing &amp; Arhatic Yoga located in the Kannamangala
+            area of Bengaluru. Established in 2024, the purpose of the centre is to spread the
+            light of Pranic Healing — offering a sanctuary where individuals can find balance,
+            peace, and restored vitality.
+          </p>
+          <p className="about__text">
+            We offer a range of services including personalized healings, guided meditations,
+            Pranic Healing certification courses, nurturing sessions, and free healing camps for
+            the community.
           </p>
 
           <div className="about__highlights">
             <div className="about__highlight">
               <h4>Holistic Approach</h4>
-              <p>Treating the energy body to heal the physical.</p>
+              <p>Treating the energy body to heal the physical, emotional &amp; mental.</p>
             </div>
             <div className="about__highlight">
               <h4>Expert Healers</h4>
-              <p>Trained in advanced Pranic Healing techniques.</p>
+              <p>Trained in advanced Pranic Healing &amp; Arhatic Yoga techniques.</p>
+            </div>
+            <div className="about__highlight">
+              <h4>Community Service</h4>
+              <p>Free healing camps for those who need support.</p>
+            </div>
+            <div className="about__highlight">
+              <h4>Structured Courses</h4>
+              <p>Globally recognised Pranic Healing certification programmes.</p>
             </div>
           </div>
 
           <a href="#offerings" className="about__link">
-            Learn More About Us <span>→</span>
+            Explore Our Services <span>→</span>
           </a>
         </div>
       </div>

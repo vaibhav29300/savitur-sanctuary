@@ -17,14 +17,16 @@ export default function Footer() {
           <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#courses">Courses</a>
+            <a href="#offerings">Courses</a>
+            <a href="#founder">Founder</a>
           </nav>
         </div>
 
         <div className="footer__nav-group">
           <h4>Services</h4>
           <nav>
-            <a href="#services">Services</a>
+            <a href="#pranic-healing">Pranic Healing</a>
+            <a href="#offerings">Offerings</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
