@@ -21,12 +21,12 @@ export default function Founder() {
 
         <div className="founder__layout">
           <div className="founder__image-col">
-            <div className="founder__image-placeholder">
-              <svg viewBox="0 0 80 80" fill="none">
-                <circle cx="40" cy="30" r="18" fill="rgba(201,168,76,0.3)" stroke="#c9a84c" strokeWidth="1.5"/>
-                <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" strokeWidth="1.5"/>
-              </svg>
-              <span>GMCKS</span>
+            <div className="founder__image-wrap">
+              <img
+                src="/founder-gmcks.jpg"
+                alt="Grand Master Choa Kok Sui in meditation"
+                className="founder__photo"
+              />
             </div>
             <div className="founder__dates">
               <div className="founder__date-item">

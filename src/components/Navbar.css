@@ -25,10 +25,43 @@
 
 .navbar__logo {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+
+/* ── Transparent state (hero top) ── */
+.navbar--transparent .navbar__logo {
+  color: var(--white);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+.navbar--transparent .navbar__link {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.navbar--transparent .navbar__link:hover,
+.navbar--transparent .navbar__link--active {
+  color: var(--white);
+}
+
+.navbar--transparent .navbar__link::after {
+  background: var(--gold);
+}
+
+.navbar--transparent .navbar__cta {
+  background: var(--gold);
+  color: #1a1428;
+}
+
+.navbar--transparent .navbar__cta:hover {
+  background: var(--gold-light);
+}
+
+.navbar--transparent .navbar__hamburger span {
+  background: var(--white);
 }
 
 .navbar__nav {
@@ -111,6 +144,10 @@
 }
 
 @media (max-width: 768px) {
+  .navbar__logo {
+    font-size: 1.1rem;
+  }
+
   .navbar__hamburger {
     display: flex;
   }

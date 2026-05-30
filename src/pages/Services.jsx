@@ -12,12 +12,12 @@ const services = [
     ),
     color: '#5b6bbf',
     title: 'Pranic Healing Courses',
-    tagline: 'Basic PH through Achieving Oneness with the Higher Soul',
+    tagline: 'Basic Pranic Healing through Achieving Oneness with the Higher Soul',
     items: [
       { name: 'Basic Pranic Healing', note: 'Foundation course — no prerequisites' },
-      { name: 'Advanced Pranic Healing', note: 'Colour prana & accelerated healing' },
-      { name: 'Pranic Psychotherapy', note: 'Emotional & psychological healing' },
-      { name: 'Achieving Oneness with the Higher Soul', note: 'Meditation for soul realisation' },
+      { name: 'Advanced Pranic Healing', note: 'Colour prana & accelerated healing techniques' },
+      { name: 'Pranic Psychotherapy', note: 'Healing emotional & psychological conditions' },
+      { name: 'Achieving Oneness with the Higher Soul (AOHS)', note: 'Meditation for soul realisation & spiritual growth' },
     ],
     cta: 'View All Courses',
     ctaLink: '/courses',
@@ -36,38 +36,13 @@ const services = [
     title: 'Healing Sessions',
     tagline: 'No-touch energy healing for the full spectrum of life challenges',
     items: [
-      { name: 'Physical Healing', note: 'Headaches, back pain, infections, chronic conditions' },
-      { name: 'Psychological Healing', note: 'Stress, anxiety, depression, phobias, trauma' },
-      { name: 'Financial Healing', note: 'Energy blockages affecting abundance & prosperity' },
+      { name: 'Physical Healing', note: 'Headaches, back pain, infections, and chronic physical conditions' },
+      { name: 'Psychological Healing', note: 'Stress, anxiety, depression, phobias, trauma, and addictions' },
+      { name: 'Financial Healing', note: 'Clearing energy blockages that affect abundance and prosperity' },
       { name: 'Relationship Healing', note: 'Healing cords, karmic ties, and interpersonal conflict' },
     ],
     cta: 'Book a Healing',
-    ctaLink: '/#contact',
-  },
-  {
-    id: 'meditation',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z" opacity="0.15" fill="currentColor" stroke="none"/>
-        <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
-        <circle cx="12" cy="9" r="2.5"/>
-      </svg>
-    ),
-    color: '#7b5ea7',
-    title: 'Meditation Sessions',
-    tagline: 'Group guided meditations for peace, blessings, and spiritual growth',
-    items: [
-      {
-        name: 'Twin Hearts Meditation (THM)',
-        note: 'Blessed meditation for peace, illumination & planetary blessing. Open to all.',
-      },
-      {
-        name: 'Arhatic Yoga Meditations',
-        note: 'Advanced meditations for Arhatic Yoga practitioners for accelerated spiritual development.',
-      },
-    ],
-    cta: 'Join a Meditation',
-    ctaLink: '/#contact',
+    interest: 'Healing Session — Physical',
   },
   {
     id: 'fengshui',
@@ -82,11 +57,11 @@ const services = [
     ),
     color: '#2a7a5e',
     title: 'Feng Shui Solutions',
-    tagline: 'Energetic harmonisation of living and working spaces',
+    tagline: 'Energetic harmonisation of homes and offices',
     items: [
       {
         name: 'Home Feng Shui',
-        note: 'Clearing stagnant energy and enhancing positive flows in your home for health, harmony & prosperity.',
+        note: 'Clearing stagnant energy and enhancing positive flows in your home for health, harmony, and prosperity.',
       },
       {
         name: 'Office & Business Feng Shui',
@@ -94,7 +69,7 @@ const services = [
       },
     ],
     cta: 'Request Consultation',
-    ctaLink: '/#contact',
+    interest: 'Feng Shui Consultation (Home / Office)',
   },
   {
     id: 'property',
@@ -106,7 +81,7 @@ const services = [
     ),
     color: '#c0392b',
     title: 'Healings for Disputed Properties',
-    tagline: 'Energetic clearing to resolve legal, financial, and interpersonal property issues',
+    tagline: 'Energetic clearing to help resolve property-related disputes and legal conflicts',
     items: [
       {
         name: 'Property Dispute Healing',
@@ -114,11 +89,36 @@ const services = [
       },
       {
         name: 'Legal Matter Energy Clearing',
-        note: 'Using Pranic Healing principles to address the energetic roots of ongoing legal and financial property conflicts.',
+        note: 'Addressing the energetic roots of ongoing legal and financial property conflicts using Pranic Healing principles.',
       },
     ],
     cta: 'Book a Consultation',
-    ctaLink: '/#contact',
+    interest: 'Healings for Disputed Properties',
+  },
+  {
+    id: 'meditation',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z" opacity="0.15" fill="currentColor" stroke="none"/>
+        <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+      </svg>
+    ),
+    color: '#7b5ea7',
+    title: 'Meditation Sessions',
+    tagline: 'Guided group meditations for peace, blessings, and spiritual growth',
+    items: [
+      {
+        name: 'Twin Hearts Meditation (THM)',
+        note: 'A powerful meditation for peace, illumination, and planetary healing. Open to all — no prerequisites.',
+      },
+      {
+        name: 'Arhatic Yoga Meditations',
+        note: 'Advanced meditations for Arhatic Yoga practitioners to accelerate spiritual development.',
+      },
+    ],
+    cta: 'Join a Meditation',
+    interest: 'Twin Hearts Meditation (THM)',
   },
   {
     id: 'nurturing',
@@ -134,15 +134,15 @@ const services = [
     items: [
       {
         name: 'Individual Nurturing',
-        note: 'Personalised one-on-one sessions providing ongoing healing, guidance, and support for your continued growth.',
+        note: 'Personalised one-on-one sessions providing ongoing healing, guidance, and support for your growth.',
       },
       {
         name: 'Group Nurturing',
-        note: 'Community-based group sessions combining healing, sharing, and collective energy work in a supportive environment.',
+        note: 'Community sessions combining healing, sharing, and collective energy work in a supportive environment.',
       },
     ],
-    cta: 'Join a Nurturing Session',
-    ctaLink: '/#contact',
+    cta: 'Enquire About Nurturing',
+    interest: 'Nurturing Session',
   },
 ]
 
@@ -189,7 +189,9 @@ export default function Services() {
               </ul>
 
               <Link
-                to={svc.ctaLink}
+                to={svc.interest
+                  ? `/?interest=${encodeURIComponent(svc.interest)}`
+                  : svc.ctaLink}
                 className="service-card__cta"
                 style={{ color: svc.color, borderColor: `${svc.color}40` }}
               >

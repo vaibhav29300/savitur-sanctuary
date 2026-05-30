@@ -6,9 +6,9 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end()
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' })
 
-  const { name, email, phone, message } = req.body ?? {}
+  const { name, email, phone, service, message } = req.body ?? {}
 
-  if (!name || !email || !message) {
+  if (!name || !email || !service) {
     return res.status(400).json({ error: 'Missing required fields' })
   }
 
@@ -16,8 +16,9 @@ export default async function handler(req, res) {
     `*New Enquiry — Savitur Sanctuary*\n\n` +
     `*Name:* ${name}\n` +
     `*Phone:* ${phone || 'Not provided'}\n` +
-    `*Email:* ${email}\n\n` +
-    `*Message:*\n${message}`
+    `*Email:* ${email}\n` +
+    `*Interested In:* ${service}\n` +
+    (message ? `\n*Message:*\n${message}` : '')
 
   const instanceId = process.env.GREENAPI_INSTANCE_ID
   const apiToken   = process.env.GREENAPI_API_TOKEN

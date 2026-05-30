@@ -4,12 +4,14 @@ import './Courses.css'
 const courses = [
   {
     id: 'basic',
+    interest: 'Basic Pranic Healing',
     level: 'Level 1',
     title: 'Basic Pranic Healing',
     subtitle: 'The Foundation',
     duration: '2 Days',
     prerequisite: 'None',
     color: '#4a7c59',
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&fit=crop',
     description:
       'The entry point to the world of energy healing. You will learn to feel, scan, cleanse, and energise the energy body (aura) using your hands. This course covers the fundamental principles of Pranic Healing — the bioplasmic body, the major and minor chakras, and the step-by-step protocol to address common ailments.',
     whatYouLearn: [
@@ -22,12 +24,14 @@ const courses = [
   },
   {
     id: 'advanced',
+    interest: 'Advanced Pranic Healing',
     level: 'Level 2',
     title: 'Advanced Pranic Healing',
     subtitle: 'Colour Prana & Accelerated Healing',
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#5b6bbf',
+    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&fit=crop',
     description:
       'In this course you learn to use colour prana — significantly more potent than white prana — to produce rapid and dramatic healing results. Advanced techniques allow you to treat serious and chronic ailments that would ordinarily require many sessions at the basic level.',
     whatYouLearn: [
@@ -40,12 +44,14 @@ const courses = [
   },
   {
     id: 'psychotherapy',
+    interest: 'Pranic Psychotherapy',
     level: 'Level 3',
     title: 'Pranic Psychotherapy',
     subtitle: 'Healing the Mind & Emotions',
     duration: '2 Days',
     prerequisite: 'Advanced Pranic Healing',
     color: '#7b5ea7',
+    image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80&fit=crop',
     description:
       'Emotional and psychological disorders are caused by negative thoughts and traumatic emotions lodged in the aura and chakras. This course teaches you to safely and effectively extract these from the affected energy centres, addressing phobias, traumas, addictions, stress, anxiety, depression, and more.',
     whatYouLearn: [
@@ -58,12 +64,14 @@ const courses = [
   },
   {
     id: 'aohs',
+    interest: 'Achieving Oneness with the Higher Soul (AOHS)',
     level: 'Level 4',
     title: 'Achieving Oneness with the Higher Soul',
     subtitle: 'Meditation for Soul Realisation',
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#c9a84c',
+    image: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=600&q=80&fit=crop',
     description:
       'One of the most profoundly transformative workshops, AOHS reveals the nature of your soul and its relationship with your incarnated personality. Through specific meditations and techniques you learn to accelerate the union of the lower self with the Higher Soul, facilitating rapid spiritual growth and inner illumination.',
     whatYouLearn: [
@@ -76,12 +84,14 @@ const courses = [
   },
   {
     id: 'arhatic',
+    interest: 'Arhatic Yoga',
     level: 'Advanced',
     title: 'Arhatic Yoga',
     subtitle: 'The Synthesis of Yoga Practices',
     duration: 'Preparatory (2 Days) + Ongoing',
     prerequisite: 'Basic Pranic Healing + Character Building',
     color: '#2a2d5e',
+    image: 'https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&q=80&fit=crop',
     description:
       'Arhatic Yoga is the jewel in the crown of Grand Master Choa Kok Sui\'s teachings. It synthesises the spiritual paths of love (Bhakti), intelligence (Jnana), will (Raja), and service (Karma) into a complete system designed to rapidly and safely accelerate the spiritual evolution of the practitioner.',
     whatYouLearn: [
@@ -94,12 +104,14 @@ const courses = [
   },
   {
     id: 'crystal',
+    interest: 'Pranic Crystal Healing',
     level: 'Specialty',
     title: 'Pranic Crystal Healing',
     subtitle: 'Amplifying Healing with Crystals',
     duration: '2 Days',
     prerequisite: 'Advanced Pranic Healing',
     color: '#c0392b',
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80&fit=crop',
     description:
       'Crystals and gemstones are powerful energy tools that can dramatically amplify healing, enhance meditation, and bring positive change when used correctly. This course teaches you the science behind crystals — how to choose, cleanse, activate, and use them for healing and other applications.',
     whatYouLearn: [
@@ -112,12 +124,14 @@ const courses = [
   },
   {
     id: 'kriyashakti',
+    interest: 'Kriyashakti',
     level: 'Specialty',
     title: 'Kriyashakti',
     subtitle: 'The Art of Materialisation & Financial Healing',
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#c9a84c',
+    image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=600&q=80&fit=crop',
     description:
       'Kriyashakti is the science of using thought power and subtle energies to materialise goals in the physical world. This course shows you how to use the power of the mind, directed intention, and energy techniques to manifest prosperity, success, and positive outcomes in work, business, and personal life.',
     whatYouLearn: [
@@ -154,21 +168,23 @@ export default function Courses() {
               key={course.id}
               id={course.id}
             >
-              <div className="course-card__image" style={{ background: `linear-gradient(135deg, ${course.color}22 0%, ${course.color}44 100%)`, borderColor: `${course.color}33` }}>
+              <div className="course-card__image" style={{ borderColor: `${course.color}44` }}>
+                {/* Background photo */}
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="course-card__photo"
+                />
+                {/* Colour-tinted overlay */}
+                <div
+                  className="course-card__photo-overlay"
+                  style={{ background: `linear-gradient(170deg, ${course.color}55 0%, ${course.color}bb 100%)` }}
+                />
+
                 <div className="course-card__level-badge" style={{ background: course.color }}>
                   {course.level}
                 </div>
-                <div className="course-card__icon" style={{ color: course.color }}>
-                  <svg viewBox="0 0 64 64" fill="none">
-                    <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="1.5" opacity="0.4"/>
-                    <circle cx="32" cy="32" r="16" stroke="currentColor" strokeWidth="1.5" opacity="0.6"/>
-                    <circle cx="32" cy="32" r="5" fill="currentColor"/>
-                    <line x1="32" y1="4" x2="32" y2="16" stroke="currentColor" strokeWidth="1.5"/>
-                    <line x1="32" y1="48" x2="32" y2="60" stroke="currentColor" strokeWidth="1.5"/>
-                    <line x1="4" y1="32" x2="16" y2="32" stroke="currentColor" strokeWidth="1.5"/>
-                    <line x1="48" y1="32" x2="60" y2="32" stroke="currentColor" strokeWidth="1.5"/>
-                  </svg>
-                </div>
+
                 <div className="course-card__meta">
                   <div className="course-card__meta-item">
                     <span>Duration</span>
@@ -198,7 +214,11 @@ export default function Courses() {
                     ))}
                   </ul>
                 </div>
-                <Link to="/#contact" className="course-card__cta" style={{ background: course.color }}>
+                <Link
+                  to={`/?interest=${encodeURIComponent(course.interest)}`}
+                  className="course-card__cta"
+                  style={{ background: course.color }}
+                >
                   Register Interest
                 </Link>
               </div>

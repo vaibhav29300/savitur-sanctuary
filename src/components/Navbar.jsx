@@ -28,9 +28,9 @@ export default function Navbar() {
   const isHome = location.pathname === '/'
 
   return (
-    <header className={`navbar ${scrolled || !isHome ? 'navbar--scrolled' : ''}`}>
+    <header className={`navbar ${scrolled || !isHome ? 'navbar--scrolled' : 'navbar--transparent'}`}>
       <div className="navbar__inner">
-        <Link to="/" className="navbar__logo">PranaSanctuary</Link>
+        <Link to="/" className="navbar__logo">Savitur Pranic Healing</Link>
 
         <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
           {navLinks.map(({ label, to }) => {
@@ -67,8 +67,14 @@ export default function Navbar() {
               </NavLink>
             )
           })}
-          <Link to="/#contact" className="navbar__cta" onClick={() => setMenuOpen(false)}>
-            Book Session
+          <Link to="/#contact" className="navbar__cta" onClick={() => {
+            setMenuOpen(false)
+            setTimeout(() => {
+              const el = document.getElementById('contact')
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }, 100)
+          }}>
+            Enquire
           </Link>
         </nav>
 

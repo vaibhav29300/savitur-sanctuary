@@ -23,6 +23,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* prevent horizontal overflow on mobile */
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +33,12 @@ body {
   background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Every section clears the fixed navbar (72px) on hash-scroll */
+section {
+  scroll-margin-top: 72px;
 }
 
 a {

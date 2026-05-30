@@ -1,11 +1,50 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import './Contact.css'
 
-const INITIAL = { name: '', email: '', phone: '', message: '' }
+const COURSES = [
+  'Basic Pranic Healing',
+  'Advanced Pranic Healing',
+  'Pranic Psychotherapy',
+  'Achieving Oneness with the Higher Soul (AOHS)',
+  'Arhatic Yoga',
+  'Pranic Crystal Healing',
+  'Kriyashakti',
+]
+
+const SERVICES = [
+  'Healing Session — Physical',
+  'Healing Session — Psychological',
+  'Healing Session — Financial',
+  'Healing Session — Relationship',
+  'Feng Shui Consultation (Home / Office)',
+  'Healings for Disputed Properties',
+  'Twin Hearts Meditation (THM)',
+  'Arhatic Yoga Meditation',
+  'Nurturing Session',
+]
+
+const INITIAL = { name: '', email: '', phone: '', service: '', message: '' }
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL)
-  const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [status, setStatus] = useState('idle')
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const interest = searchParams.get('interest')
+    if (!interest) return
+    setForm(f => ({ ...f, service: interest }))
+    // Wait for render then smooth-scroll to the form
+    const timer = setTimeout(() => {
+      const el = document.getElementById('contact')
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 72
+        window.scrollTo({ top, behavior: 'smooth' })
+      }
+    }, 80)
+    return () => clearTimeout(timer)
+  }, [searchParams])
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -34,12 +73,14 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="contact__inner">
+
+        {/* ── Left column: info + map ── */}
         <div className="contact__info">
           <p className="contact__label">— Get in Touch</p>
           <h2 className="contact__title">Begin Your Healing Journey Today</h2>
           <p className="contact__text">
-            Ready to experience the profound benefits of Pranic Healing? Reach out to us to book
-            a session, join a course, or simply learn more about our offerings.
+            Ready to experience the profound benefits of Pranic Healing? Reach out to us to
+            book a session, join a course, or simply learn more about our offerings.
           </p>
 
           <div className="contact__details">
@@ -55,6 +96,7 @@ export default function Contact() {
                 <div className="contact__detail-val">Kannamangala, Bengaluru, Karnataka</div>
               </div>
             </div>
+
             <div className="contact__detail">
               <div className="contact__detail-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -66,6 +108,7 @@ export default function Contact() {
                 <div className="contact__detail-val">+91 73894 52289</div>
               </div>
             </div>
+
             <div className="contact__detail">
               <div className="contact__detail-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -79,8 +122,34 @@ export default function Contact() {
               </div>
             </div>
           </div>
+
+          {/* Google Maps embed */}
+          <div className="contact__map">
+            <iframe
+              title="Savitur Pranic Healing Centre"
+              src="https://maps.google.com/maps?q=savitur+pranic+healing+kannamangala+bangalore&output=embed&z=15"
+              width="100%"
+              height="240"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a
+              href="https://share.google/uR7J6xdT0lyTPmnV1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__directions"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              Get Directions
+            </a>
+          </div>
         </div>
 
+        {/* ── Right column: form ── */}
         <div className="contact__form-wrap">
           {status === 'success' ? (
             <div className="contact__success">
@@ -120,6 +189,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
+
               <div className="contact__field">
                 <label htmlFor="email">Email Address</label>
                 <input
@@ -133,14 +203,41 @@ export default function Contact() {
                   disabled={status === 'sending'}
                 />
               </div>
+
               <div className="contact__field">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="service">Interested In</label>
+                <select
+                  id="service"
+                  name="service"
+                  value={form.service}
+                  onChange={handleChange}
+                  disabled={status === 'sending'}
+                  required
+                >
+                  <option value="" disabled>Select a service or course…</option>
+                  <optgroup label="── Courses ──">
+                    {COURSES.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="── Services ──">
+                    {SERVICES.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="──────────">
+                    <option value="Not sure — need guidance">Not sure — need guidance</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div className="contact__field">
+                <label htmlFor="message">Message <span className="contact__optional">(optional)</span></label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
-                  required
-                  placeholder="How can we help you? Tell us about your wellness goals…"
+                  rows={4}
+                  placeholder="Tell us a bit about yourself or what you're looking for…"
                   value={form.message}
                   onChange={handleChange}
                   disabled={status === 'sending'}
@@ -149,7 +246,7 @@ export default function Contact() {
 
               {status === 'error' && (
                 <p className="contact__error">
-                  Something went wrong. Please try again or WhatsApp us directly at +91 73894 52289.
+                  Something went wrong. Please try again or WhatsApp us at +91 73894 52289.
                 </p>
               )}
 
