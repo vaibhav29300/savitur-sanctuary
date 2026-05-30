@@ -1,0 +1,135 @@
+.about {
+  padding: 7rem 2rem;
+  background: var(--cream);
+}
+
+.about__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about__image-wrap {
+  position: relative;
+}
+
+.about__image {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(42, 45, 94, 0.15);
+}
+
+.about__image-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  box-shadow: 0 8px 30px rgba(42, 45, 94, 0.3);
+}
+
+.about__badge-year {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.about__badge-loc {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.about__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.about__text {
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-size: 0.97rem;
+  margin-bottom: 2rem;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid rgba(42,45,94,0.08);
+}
+
+.about__highlight h4 {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+
+.about__highlight p {
+  font-size: 0.84rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--navy);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--navy);
+  padding-bottom: 2px;
+  transition: gap 0.2s, color 0.2s;
+}
+
+.about__link:hover {
+  gap: 0.7rem;
+  color: var(--navy-light);
+}
+
+@media (max-width: 900px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about__image {
+    height: 380px;
+  }
+
+  .about__image-badge {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
