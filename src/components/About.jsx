@@ -7,7 +7,7 @@ export default function About() {
       <div className="about__inner">
         <div className="about__image-wrap">
           <img
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80"
+            src="/about-centre.webp"
             alt="Savitur Pranic Healing Centre"
             className="about__image"
           />

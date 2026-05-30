@@ -24,18 +24,29 @@
 }
 
 .navbar__logo {
-  font-family: var(--font-serif);
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 0.02em;
-  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  /* White pill so logo is readable on the dark hero */
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  padding: 4px 10px;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
-/* ── Transparent state (hero top) ── */
-.navbar--transparent .navbar__logo {
-  color: var(--white);
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+.navbar__logo-img {
+  /* Crop out the "Reach us at" text at the bottom of the logo */
+  height: 44px;
+  width: auto;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  max-width: 140px;
+}
+
+/* Scrolled: navbar is white — no pill needed */
+.navbar--scrolled .navbar__logo {
+  background: transparent;
+  padding: 2px 0;
 }
 
 .navbar--transparent .navbar__link {
@@ -144,8 +155,9 @@
 }
 
 @media (max-width: 768px) {
-  .navbar__logo {
-    font-size: 1.1rem;
+  .navbar__logo-img {
+    height: 38px;
+    max-width: 120px;
   }
 
   .navbar__hamburger {

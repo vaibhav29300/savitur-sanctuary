@@ -30,7 +30,9 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled || !isHome ? 'navbar--scrolled' : 'navbar--transparent'}`}>
       <div className="navbar__inner">
-        <Link to="/" className="navbar__logo">Savitur Pranic Healing</Link>
+        <Link to="/" className="navbar__logo">
+          <img src="/logo.webp" alt="Savitur Pranic Healing" className="navbar__logo-img" />
+        </Link>
 
         <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
           {navLinks.map(({ label, to }) => {
