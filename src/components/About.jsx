@@ -23,7 +23,7 @@ export default function About() {
           <p className="about__text">
             Savitur is a Centre for Pranic Healing &amp; Arhatic Yoga located in the Kannamangala
             area of Bengaluru. Established in 2024, the purpose of the centre is to spread the
-            light of Pranic Healing — offering a sanctuary where individuals can find balance,
+            light of Pranic Healing — offering a centre where individuals can find balance,
             peace, and restored vitality.
           </p>
           <p className="about__text">

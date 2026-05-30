@@ -27,7 +27,7 @@ export default function Hero() {
           <em>Illuminate the Soul.</em>
         </h1>
         <p className="hero__subtitle">
-          A sanctuary for Pranic Healing &amp; Arhatic Yoga — rooted in the
+          A centre for Pranic Healing &amp; Arhatic Yoga — rooted in the
           ancient wisdom of Grand Master Choa Kok Sui.
         </p>
         <div className="hero__actions">

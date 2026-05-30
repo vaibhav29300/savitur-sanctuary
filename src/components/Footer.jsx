@@ -27,7 +27,7 @@ export default function Footer() {
               @savitur.pranichealing
             </a>
           </div>
-          <p className="footer__copy">© 2026 Savitur Pranic Healing Sanctuary. All rights reserved.</p>
+          <p className="footer__copy">© 2026 Savitur Pranic Healing Centre. All rights reserved.</p>
         </div>
 
         <div className="footer__nav-group">
