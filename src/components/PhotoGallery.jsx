@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import './PhotoGallery.css'
 
-const photos = [
+const DEFAULT_PHOTOS = [
   {
     src: '/gallery/gallery-1.jpg',
     caption: 'Pranic Healing Class',
@@ -25,8 +25,23 @@ const photos = [
 ]
 
 export default function PhotoGallery() {
+  const [photos, setPhotos] = useState(DEFAULT_PHOTOS)
   const [active, setActive] = useState(0)
   const [animating, setAnimating] = useState(false)
+
+  // Pull in any photos uploaded via the admin page; fall back to defaults.
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/gallery')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (cancelled || !d?.photos?.length) return
+        const uploaded = d.photos.map((p) => ({ src: p.url, caption: p.caption, desc: p.desc }))
+        setPhotos([...uploaded, ...DEFAULT_PHOTOS])
+      })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
 
   const goTo = useCallback((index) => {
     if (animating) return
@@ -39,11 +54,11 @@ export default function PhotoGallery() {
 
   const prev = useCallback(() => {
     goTo((active - 1 + photos.length) % photos.length)
-  }, [active, goTo])
+  }, [active, goTo, photos.length])
 
   const next = useCallback(() => {
     goTo((active + 1) % photos.length)
-  }, [active, goTo])
+  }, [active, goTo, photos.length])
 
   useEffect(() => {
     const id = setInterval(next, 5000)
