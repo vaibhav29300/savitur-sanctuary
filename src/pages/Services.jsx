@@ -131,8 +131,6 @@ const services = [
     color: '#c9a84c',
     title: 'Nurturing Sessions',
     tagline: 'Ongoing support for sustained healing and spiritual growth',
-    description:
-      'Our Nurturing Sessions are dedicated follow-up gatherings for students who have completed our Pranic Healing courses, designed to hand-hold and guide you on your continued journey. Through regular practice, doubt-clearing, and shared experiences in a warm, supportive environment, we help you strengthen your techniques, deepen your understanding, and confidently apply the teachings in everyday life.',
     items: [
       {
         name: 'Individual Nurturing',
@@ -159,6 +157,13 @@ export default function Services() {
             A complete range of Pranic Healing services for your physical, emotional, mental,
             and spiritual wellbeing — all under one roof in Kannamangala, Bengaluru.
           </p>
+          <p className="services-hero__sub">
+            Our Nurturing Sessions are dedicated follow-up gatherings for students who have
+            completed our Pranic Healing courses, designed to hand-hold and guide you on your
+            continued journey. Through regular practice, doubt-clearing, and shared experiences
+            in a warm, supportive environment, we help you strengthen your techniques, deepen
+            your understanding, and confidently apply the teachings in everyday life.
+          </p>
         </div>
       </div>
 
@@ -175,10 +180,6 @@ export default function Services() {
                   <p className="service-card__tagline">{svc.tagline}</p>
                 </div>
               </div>
-
-              {svc.description && (
-                <p className="service-card__desc">{svc.description}</p>
-              )}
 
               <ul className="service-card__items">
                 {svc.items.map((item) => (
