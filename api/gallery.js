@@ -43,13 +43,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
-    return res.status(503).json({ error: 'Photo storage is not configured yet.' })
-  }
-
   const { action, user, password, image, caption, desc, id } = req.body ?? {}
 
-  // ── Auth: the real security boundary ──
+  // ── Auth: the real security boundary (checked before anything else) ──
   // Username is non-secret (defaults to "savitur"); the password is read ONLY
   // from the ADMIN_PASSWORD env var so it never lives in this public repo.
   const expectedUser = process.env.ADMIN_USER || 'savitur'
@@ -59,8 +55,14 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Invalid username or password.' })
   }
 
+  // Login just needs the correct password — no storage required.
   if (action === 'login') {
     return res.status(200).json({ success: true })
+  }
+
+  // Uploading / deleting needs the Blob store to exist.
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return res.status(503).json({ error: 'Photo storage is not configured yet. Create a Blob store in Vercel.' })
   }
 
   if (action === 'add') {
