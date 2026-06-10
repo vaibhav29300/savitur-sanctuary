@@ -1,70 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Serene mind and emotional healing">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Serene lotus of inner peace">
   <defs>
-    <linearGradient id="calm" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#e9e3ff"/>
-      <stop offset="50%" stop-color="#f4ecff"/>
-      <stop offset="100%" stop-color="#fff0e4"/>
+    <linearGradient id="bgP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#42376f"/>
+      <stop offset="55%" stop-color="#6f5aa0"/>
+      <stop offset="100%" stop-color="#a48fc9"/>
     </linearGradient>
-    <linearGradient id="figure" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
-      <stop offset="100%" stop-color="#ffe9c9" stop-opacity="0.82"/>
-    </linearGradient>
-    <radialGradient id="crown" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-      <stop offset="35%" stop-color="#fff1c2" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#ffd27a" stop-opacity="0"/>
+    <radialGradient id="haloP" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff6df" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#ffe6c0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffe6c0" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="heart" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffe1ec" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#ffb3cf" stop-opacity="0"/>
+    <linearGradient id="petalOuter" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#b9a3e0"/>
+      <stop offset="100%" stop-color="#efe7ff"/>
+    </linearGradient>
+    <linearGradient id="petalInner" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ffd9ec"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <radialGradient id="seed" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fff3c4"/>
+      <stop offset="100%" stop-color="#f0b94e"/>
     </radialGradient>
   </defs>
 
-  <rect width="800" height="600" fill="url(#calm)"/>
+  <rect width="800" height="600" fill="url(#bgP)"/>
 
-  <!-- calm radiating rings of a peaceful mind -->
-  <g fill="none" stroke="#ffffff" stroke-opacity="0.4">
-    <circle cx="400" cy="235" r="120"/>
-    <circle cx="400" cy="235" r="180" stroke-opacity="0.26"/>
-    <circle cx="400" cy="235" r="250" stroke-opacity="0.16"/>
-    <circle cx="400" cy="235" r="320" stroke-opacity="0.1"/>
+  <!-- calm radiating ripples -->
+  <g fill="none" stroke="#ffffff" transform="translate(400 300)">
+    <circle r="120" stroke-opacity="0.3"/>
+    <circle r="185" stroke-opacity="0.2"/>
+    <circle r="255" stroke-opacity="0.12"/>
+    <circle r="330" stroke-opacity="0.07"/>
   </g>
 
-  <!-- crown glow -->
-  <circle cx="400" cy="180" r="150" fill="url(#crown)"/>
+  <!-- soft halo -->
+  <circle cx="400" cy="300" r="250" fill="url(#haloP)"/>
 
-  <!-- meditating figure -->
-  <g>
-    <!-- seated body / shoulders -->
-    <path d="M232 520 C232 392 312 332 400 332 C488 332 568 392 568 520 Z" fill="url(#figure)"/>
-    <!-- resting hands in lap -->
-    <ellipse cx="400" cy="470" rx="58" ry="26" fill="#fff7e6" opacity="0.9"/>
-    <!-- head -->
-    <circle cx="400" cy="262" r="58" fill="url(#figure)"/>
-    <!-- neck -->
-    <rect x="378" y="306" width="44" height="40" rx="18" fill="url(#figure)"/>
+  <!-- lotus blossom (top view) -->
+  <g transform="translate(400 300)" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.2">
+    <!-- back row -->
+    <g>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(22.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(67.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(112.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(157.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(202.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(247.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(292.5)"/>
+      <path d="M0 0 C-30 -55 -20 -120 0 -150 C20 -120 30 -55 0 0 Z" fill="url(#petalOuter)" transform="rotate(337.5)"/>
+    </g>
+    <!-- front row -->
+    <g>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(0)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(45)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(90)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(135)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(180)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(225)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(270)"/>
+      <path d="M0 0 C-26 -45 -16 -98 0 -120 C16 -98 26 -45 0 0 Z" fill="url(#petalInner)" transform="rotate(315)"/>
+    </g>
+    <!-- seed centre -->
+    <circle r="30" fill="url(#seed)" stroke="none"/>
+    <circle r="30" fill="none" stroke="#ffffff" stroke-opacity="0.6"/>
   </g>
 
-  <!-- heart glow -->
-  <circle cx="400" cy="420" r="78" fill="url(#heart)"/>
-
-  <!-- small lotus at the base -->
-  <g transform="translate(400 560)" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.2">
-    <ellipse cx="0" cy="-30" rx="16" ry="46" fill="#fff3d6" opacity="0.85" transform="rotate(0)"/>
-    <ellipse cx="0" cy="-28" rx="15" ry="42" fill="#fff3d6" opacity="0.8" transform="rotate(28)"/>
-    <ellipse cx="0" cy="-28" rx="15" ry="42" fill="#fff3d6" opacity="0.8" transform="rotate(-28)"/>
-    <ellipse cx="0" cy="-24" rx="13" ry="36" fill="#fff3d6" opacity="0.75" transform="rotate(54)"/>
-    <ellipse cx="0" cy="-24" rx="13" ry="36" fill="#fff3d6" opacity="0.75" transform="rotate(-54)"/>
-  </g>
-
-  <!-- floating calm particles -->
+  <!-- sparkles -->
   <g fill="#ffffff">
-    <circle cx="200" cy="160" r="5" opacity="0.8"/>
-    <circle cx="620" cy="140" r="4" opacity="0.75"/>
-    <circle cx="680" cy="320" r="6" opacity="0.55"/>
-    <circle cx="140" cy="360" r="5" opacity="0.6"/>
-    <circle cx="560" cy="250" r="3" opacity="0.8"/>
-    <circle cx="250" cy="300" r="3" opacity="0.75"/>
-    <circle cx="500" cy="120" r="3" opacity="0.8"/>
+    <circle cx="180" cy="150" r="4" opacity="0.85"/>
+    <circle cx="640" cy="130" r="3.5" opacity="0.8"/>
+    <circle cx="700" cy="320" r="5" opacity="0.55"/>
+    <circle cx="120" cy="350" r="4" opacity="0.6"/>
+    <circle cx="560" cy="470" r="3.5" opacity="0.65"/>
+    <circle cx="250" cy="500" r="3" opacity="0.65"/>
+    <circle cx="500" cy="100" r="3" opacity="0.8"/>
   </g>
 </svg>
