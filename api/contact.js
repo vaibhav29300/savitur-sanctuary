@@ -13,23 +13,27 @@ export default async function handler(req, res) {
   }
 
   const text =
-    `*New Enquiry — Savitur Sanctuary*\n\n` +
+    `*New Enquiry — Savitur Pranic Healing*\n\n` +
     `*Name:* ${name}\n` +
     `*Phone:* ${phone || 'Not provided'}\n` +
     `*Email:* ${email}\n` +
     `*Interested In:* ${service}\n` +
-    (message ? `\n*Message:*\n${message}` : '')
+    (message ? `\n*Message:*\n${message}` : '') +
+    `\n\n_Sent from the Savitur website_`
 
   const instanceId = process.env.GREENAPI_INSTANCE_ID
   const apiToken   = process.env.GREENAPI_API_TOKEN
   const waNumber   = process.env.WA_NUMBER || '917389452289'
+  // Each Green API instance has its own host (e.g. https://1103.api.green-api.com),
+  // shown as "apiUrl" in the instance console. Falls back to the generic gateway.
+  const apiUrl     = (process.env.GREENAPI_API_URL || 'https://api.green-api.com').replace(/\/+$/, '')
 
   if (!instanceId || !apiToken) {
     return res.status(500).json({ error: 'WhatsApp not configured' })
   }
 
   try {
-    const url = `https://api.greenapi.com/waInstance${instanceId}/sendMessage/${apiToken}`
+    const url = `${apiUrl}/waInstance${instanceId}/sendMessage/${apiToken}`
 
     const response = await fetch(url, {
       method: 'POST',
