@@ -45,56 +45,77 @@ export default function Founder() {
           </div>
 
           <div className="founder__bio">
-            <p>
-              Grand Master Choa Kok Sui — known to tens of thousands of Pranic Healers and
-              Arhatic Yoga practitioners worldwide as Master Choa, GMCKS or MCKS — is the
-              president of the Institute for Inner Studies, Inc. and World Pranic Healing
-              Foundation, Inc. He is also founder of Modern Pranic Healing® and Arhatic Yoga®.
-            </p>
-            <p>
-              Grand Master Choa is a spiritual teacher and a true embodiment of his teachings.
-              His rare depth of wisdom is a result of the alchemy of his experiences as an
-              enlightened guru, chemical engineer, philanthropist, businessman and scientist.
-              His more than 30 years of research and proclivity for experimentation on the wise
-              use of subtle energy has made him a Master of Energies.
-            </p>
-            <p>
-              Born to a wealthy Chinese family in Cebu City, Philippines, his focus shifted
-              early from business to his spiritual mission. As a young boy he read voraciously,
-              studying the lives of spiritual beings, and considered himself a walking
-              encyclopaedia on esoteric knowledge and healing. Through his spiritual mentors —
-              Mang Dabon, Mang Nenet, and Mang Mike — he was able to contact his Sat Guru,
-              Mahaguruji Mei Ling, who gently guided and prepared him to fulfil his dharma.
-            </p>
-            <p>
-              As a scientist, Grand Master Choa spent over 30 years researching, experimenting
-              and validating the specific techniques introduced in Pranic Healing books,
-              workshops and seminars that have now gained worldwide popularity in over 100
-              countries. Through his revolutionary system, he demystified the energy healing art
-              into a scientific, systematic and pragmatic application relevant to this day and age.
-            </p>
-            <p>
-              As an author, Grand Master Choa wrote 27 books on Pranic Healing and spirituality.
-              <em> Miracles Through Pranic Healing</em>, first published in 1984, has been
-              translated into 27 languages. To facilitate the global dissemination of Pranic
-              Healing, he founded the Institute for Inner Studies Inc. in 1988 and the World
-              Pranic Healing Foundation in 1990 to help spread the healing science in developing
-              countries.
-            </p>
-            <p>
-              Grand Master Choa also developed the Arhatic Yoga® system — synthesising the
-              spiritual paths of love, intelligence and will through advanced breathing
-              techniques, meditations, character building and inner purifications — to accelerate
-              the evolutionary development of the soul and enable each person to be of greater
-              service to mankind and the planet Earth.
-            </p>
-            <p>
-              Today, his teachings circle the globe in the United States, Central and South
-              America, India, Western and Eastern Europe, Asia, Africa, the Middle East, Canada,
-              Australia and beyond — touching lives and forming Pranic Healing centres,
-              foundations and institutes with thousands of teachers and tens of thousands of
-              practitioners.
-            </p>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">The Founder</h3>
+              <p>
+                Grand Master Choa Kok Sui — known to tens of thousands of Pranic Healers and
+                Arhatic Yoga practitioners worldwide as Master Choa, GMCKS or MCKS — is the
+                president of the Institute for Inner Studies, Inc. and World Pranic Healing
+                Foundation, Inc. He is also founder of Modern Pranic Healing® and Arhatic Yoga®.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">The Master of Energies</h3>
+              <p>
+                Grand Master Choa is a spiritual teacher and a true embodiment of his teachings.
+                His rare depth of wisdom is a result of the alchemy of his experiences as an
+                enlightened guru, chemical engineer, philanthropist, businessman and scientist.
+                His more than 30 years of research and proclivity for experimentation on the wise
+                use of subtle energy has made him a Master of Energies.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">Early Life &amp; Spiritual Path</h3>
+              <p>
+                Born to a wealthy Chinese family in Cebu City, Philippines, his focus shifted
+                early from business to his spiritual mission. As a young boy he read voraciously,
+                studying the lives of spiritual beings, and considered himself a walking
+                encyclopaedia on esoteric knowledge and healing. Through his spiritual mentors —
+                Mang Dabon, Mang Nenet, and Mang Mike — he was able to contact his Sat Guru,
+                Mahaguruji Mei Ling, who gently guided and prepared him to fulfil his dharma.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">The Scientist</h3>
+              <p>
+                As a scientist, Grand Master Choa spent over 30 years researching, experimenting
+                and validating the specific techniques introduced in Pranic Healing books,
+                workshops and seminars that have now gained worldwide popularity in over 100
+                countries. Through his revolutionary system, he demystified the energy healing art
+                into a scientific, systematic and pragmatic application relevant to this day and age.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">The Author</h3>
+              <p>
+                As an author, Grand Master Choa wrote 27 books on Pranic Healing and spirituality.
+                <em> Miracles Through Pranic Healing</em>, first published in 1984, has been
+                translated into 27 languages. To facilitate the global dissemination of Pranic
+                Healing, he founded the Institute for Inner Studies Inc. in 1988 and the World
+                Pranic Healing Foundation in 1990 to help spread the healing science in developing
+                countries.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">Creator of Arhatic Yoga</h3>
+              <p>
+                Grand Master Choa also developed the Arhatic Yoga® system — synthesising the
+                spiritual paths of love, intelligence and will through advanced breathing
+                techniques, meditations, character building and inner purifications — to accelerate
+                the evolutionary development of the soul and enable each person to be of greater
+                service to mankind and the planet Earth.
+              </p>
+            </div>
+            <div className="founder__bio-block">
+              <h3 className="founder__bio-heading">A Global Legacy</h3>
+              <p>
+                Today, his teachings circle the globe in the United States, Central and South
+                America, India, Western and Eastern Europe, Asia, Africa, the Middle East, Canada,
+                Australia and beyond — touching lives and forming Pranic Healing centres,
+                foundations and institutes with thousands of teachers and tens of thousands of
+                practitioners.
+              </p>
+            </div>
 
             <div className="founder__last-words">
               <h4>His Last Messages to His Students</h4>

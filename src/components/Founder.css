@@ -136,6 +136,30 @@
   gap: 1.3rem;
 }
 
+.founder__bio-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.founder__bio-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.founder__bio-heading::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
 .founder__bio p {
   font-size: 0.97rem;
   color: var(--text-mid);
