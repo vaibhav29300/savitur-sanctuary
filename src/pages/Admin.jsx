@@ -36,7 +36,7 @@ export default function Admin() {
   const [creds, setCreds] = useState(() => {
     try { return JSON.parse(sessionStorage.getItem(SESSION_KEY)) || null } catch { return null }
   })
-  const [loginForm, setLoginForm] = useState({ user: '', password: '' })
+  const [loginForm, setLoginForm] = useState({ user: 'savitur', password: '' })
   const [loginError, setLoginError] = useState('')
   const [loggingIn, setLoggingIn] = useState(false)
 

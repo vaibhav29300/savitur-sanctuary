@@ -49,8 +49,11 @@ export default async function handler(req, res) {
 
   const { action, user, password, image, caption, desc, id } = req.body ?? {}
 
-  // ── Auth: the real security boundary (secret lives only in env vars) ──
-  const userOk = !process.env.ADMIN_USER || user === process.env.ADMIN_USER
+  // ── Auth: the real security boundary ──
+  // Username is non-secret (defaults to "savitur"); the password is read ONLY
+  // from the ADMIN_PASSWORD env var so it never lives in this public repo.
+  const expectedUser = process.env.ADMIN_USER || 'savitur'
+  const userOk = user === expectedUser
   const passOk = !!process.env.ADMIN_PASSWORD && password === process.env.ADMIN_PASSWORD
   if (!userOk || !passOk) {
     return res.status(401).json({ error: 'Invalid username or password.' })
