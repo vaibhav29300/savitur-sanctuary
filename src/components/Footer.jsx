@@ -49,8 +49,6 @@ export default function Footer() {
             <Link to="/courses#psychotherapy">Pranic Psychotherapy</Link>
             <Link to="/courses#aohs">Achieving Oneness (AOHS)</Link>
             <Link to="/courses#arhatic">Arhatic Yoga</Link>
-            <Link to="/courses#crystal">Pranic Crystal Healing</Link>
-            <Link to="/courses#kriyashakti">Kriyashakti</Link>
           </nav>
         </div>
 

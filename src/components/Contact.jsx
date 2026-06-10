@@ -8,8 +8,6 @@ const COURSES = [
   'Pranic Psychotherapy',
   'Achieving Oneness with the Higher Soul (AOHS)',
   'Arhatic Yoga',
-  'Pranic Crystal Healing',
-  'Kriyashakti',
 ]
 
 const SERVICES = [

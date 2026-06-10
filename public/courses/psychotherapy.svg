@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Serene mind and emotional healing">
+  <defs>
+    <linearGradient id="calm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e9e3ff"/>
+      <stop offset="50%" stop-color="#f4ecff"/>
+      <stop offset="100%" stop-color="#fff0e4"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#ffe9c9" stop-opacity="0.82"/>
+    </linearGradient>
+    <radialGradient id="crown" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#fff1c2" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffd27a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="heart" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe1ec" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffb3cf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#calm)"/>
+
+  <!-- calm radiating rings of a peaceful mind -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.4">
+    <circle cx="400" cy="235" r="120"/>
+    <circle cx="400" cy="235" r="180" stroke-opacity="0.26"/>
+    <circle cx="400" cy="235" r="250" stroke-opacity="0.16"/>
+    <circle cx="400" cy="235" r="320" stroke-opacity="0.1"/>
+  </g>
+
+  <!-- crown glow -->
+  <circle cx="400" cy="180" r="150" fill="url(#crown)"/>
+
+  <!-- meditating figure -->
+  <g>
+    <!-- seated body / shoulders -->
+    <path d="M232 520 C232 392 312 332 400 332 C488 332 568 392 568 520 Z" fill="url(#figure)"/>
+    <!-- resting hands in lap -->
+    <ellipse cx="400" cy="470" rx="58" ry="26" fill="#fff7e6" opacity="0.9"/>
+    <!-- head -->
+    <circle cx="400" cy="262" r="58" fill="url(#figure)"/>
+    <!-- neck -->
+    <rect x="378" y="306" width="44" height="40" rx="18" fill="url(#figure)"/>
+  </g>
+
+  <!-- heart glow -->
+  <circle cx="400" cy="420" r="78" fill="url(#heart)"/>
+
+  <!-- small lotus at the base -->
+  <g transform="translate(400 560)" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.2">
+    <ellipse cx="0" cy="-30" rx="16" ry="46" fill="#fff3d6" opacity="0.85" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-28" rx="15" ry="42" fill="#fff3d6" opacity="0.8" transform="rotate(28)"/>
+    <ellipse cx="0" cy="-28" rx="15" ry="42" fill="#fff3d6" opacity="0.8" transform="rotate(-28)"/>
+    <ellipse cx="0" cy="-24" rx="13" ry="36" fill="#fff3d6" opacity="0.75" transform="rotate(54)"/>
+    <ellipse cx="0" cy="-24" rx="13" ry="36" fill="#fff3d6" opacity="0.75" transform="rotate(-54)"/>
+  </g>
+
+  <!-- floating calm particles -->
+  <g fill="#ffffff">
+    <circle cx="200" cy="160" r="5" opacity="0.8"/>
+    <circle cx="620" cy="140" r="4" opacity="0.75"/>
+    <circle cx="680" cy="320" r="6" opacity="0.55"/>
+    <circle cx="140" cy="360" r="5" opacity="0.6"/>
+    <circle cx="560" cy="250" r="3" opacity="0.8"/>
+    <circle cx="250" cy="300" r="3" opacity="0.75"/>
+    <circle cx="500" cy="120" r="3" opacity="0.8"/>
+  </g>
+</svg>

@@ -266,6 +266,61 @@
   transform: translateY(-1px);
 }
 
+/* ── "Other courses" / WPHF block ── */
+.courses-more {
+  background: linear-gradient(135deg, #f6f4ef 0%, #efeae0 100%);
+  padding: 4.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(42,45,94,0.08);
+}
+
+.courses-more__inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.courses-more__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+.courses-more__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--navy);
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+
+.courses-more__text {
+  color: rgba(42,45,94,0.72);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}
+
+.courses-more__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.courses-more__cta:hover {
+  background: #1a1c3a;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 900px) {
   .course-card,
   .course-card--reverse {

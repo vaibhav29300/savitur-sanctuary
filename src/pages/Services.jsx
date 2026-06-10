@@ -190,7 +190,7 @@ export default function Services() {
 
               <Link
                 to={svc.interest
-                  ? `/?interest=${encodeURIComponent(svc.interest)}`
+                  ? `/contact?interest=${encodeURIComponent(svc.interest)}`
                   : svc.ctaLink}
                 className="service-card__cta"
                 style={{ color: svc.color, borderColor: `${svc.color}40` }}

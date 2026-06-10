@@ -31,7 +31,7 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#5b6bbf',
-    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&fit=crop',
+    image: '/courses/advanced.svg',
     description:
       'In this course you learn to use colour prana — significantly more potent than white prana — to produce rapid and dramatic healing results. Advanced techniques allow you to treat serious and chronic ailments that would ordinarily require many sessions at the basic level.',
     whatYouLearn: [
@@ -51,7 +51,7 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'Advanced Pranic Healing',
     color: '#7b5ea7',
-    image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80&fit=crop',
+    image: '/courses/psychotherapy.svg',
     description:
       'Emotional and psychological disorders are caused by negative thoughts and traumatic emotions lodged in the aura and chakras. This course teaches you to safely and effectively extract these from the affected energy centres, addressing phobias, traumas, addictions, stress, anxiety, depression, and more.',
     whatYouLearn: [
@@ -102,46 +102,6 @@ const courses = [
       'Techniques to strengthen the spiritual will and divine love',
     ],
   },
-  {
-    id: 'crystal',
-    interest: 'Pranic Crystal Healing',
-    level: 'Specialty',
-    title: 'Pranic Crystal Healing',
-    subtitle: 'Amplifying Healing with Crystals',
-    duration: '2 Days',
-    prerequisite: 'Advanced Pranic Healing',
-    color: '#c0392b',
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80&fit=crop',
-    description:
-      'Crystals and gemstones are powerful energy tools that can dramatically amplify healing, enhance meditation, and bring positive change when used correctly. This course teaches you the science behind crystals — how to choose, cleanse, activate, and use them for healing and other applications.',
-    whatYouLearn: [
-      'Understand the energetic properties of different crystals',
-      'Cleanse, activate, and consecrate crystals properly',
-      'Use crystals as healing tools and power amplifiers',
-      'Create protective shields and positive energy fields',
-      'Avoid the common harmful effects of improper crystal use',
-    ],
-  },
-  {
-    id: 'kriyashakti',
-    interest: 'Kriyashakti',
-    level: 'Specialty',
-    title: 'Kriyashakti',
-    subtitle: 'The Art of Materialisation & Financial Healing',
-    duration: '2 Days',
-    prerequisite: 'Basic Pranic Healing',
-    color: '#c9a84c',
-    image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=600&q=80&fit=crop',
-    description:
-      'Kriyashakti is the science of using thought power and subtle energies to materialise goals in the physical world. This course shows you how to use the power of the mind, directed intention, and energy techniques to manifest prosperity, success, and positive outcomes in work, business, and personal life.',
-    whatYouLearn: [
-      'Understand how thoughts create physical reality',
-      'Use seed thoughts and thoughtforms for manifestation',
-      'Apply techniques to attract prosperity and abundance',
-      'Perform financial healing for yourself and others',
-      'Clear negative financial karma and energy blockages',
-    ],
-  },
 ]
 
 export default function Courses() {
@@ -152,8 +112,8 @@ export default function Courses() {
           <p className="courses-hero__label">— Pranic Healing Courses</p>
           <h1 className="courses-hero__title">Learn to Heal with Prana</h1>
           <p className="courses-hero__sub">
-            Globally recognised certification courses developed by Grand Master Choa Kok Sui,
-            now available at Savitur, Bengaluru. All courses are taught by certified Pranic
+            Globally recognised workshops developed by Grand Master Choa Kok Sui,
+            now available at Savitur, Bengaluru. All courses are taught by licensed Pranic
             Healing instructors.
           </p>
           <Link to="/contact" className="courses-hero__cta">Enquire About Courses →</Link>
@@ -215,7 +175,7 @@ export default function Courses() {
                   </ul>
                 </div>
                 <Link
-                  to={`/?interest=${encodeURIComponent(course.interest)}`}
+                  to={`/contact?interest=${encodeURIComponent(course.interest)}`}
                   className="course-card__cta"
                   style={{ background: course.color }}
                 >
@@ -224,6 +184,25 @@ export default function Courses() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="courses-more">
+        <div className="courses-more__inner">
+          <p className="courses-more__label">— Beyond Savitur</p>
+          <h2 className="courses-more__title">Looking for Other Courses?</h2>
+          <p className="courses-more__text">
+            Explore the full range of Pranic Healing &amp; Arhatic Yoga workshops offered
+            worldwide through the World Pranic Healing Foundation.
+          </p>
+          <a
+            href="https://www.worldpranichealing.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="courses-more__cta"
+          >
+            Visit World Pranic Healing Foundation →
+          </a>
         </div>
       </div>
     </div>
