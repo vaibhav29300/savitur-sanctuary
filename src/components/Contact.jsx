@@ -96,7 +96,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="contact__detail-label">WhatsApp / Phone</div>
-                <div className="contact__detail-val">+91 73894 52289</div>
+                <div className="contact__detail-val">+91-7045256527</div>
               </div>
             </div>
 
@@ -258,7 +258,7 @@ export default function Contact() {
 
               {status === 'error' && (
                 <p className="contact__error">
-                  Something went wrong. Please try again or WhatsApp us at +91 73894 52289.
+                  Something went wrong. Please try again or WhatsApp us at +91-7045256527.
                 </p>
               )}
 

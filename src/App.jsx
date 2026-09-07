@@ -10,9 +10,35 @@ import ContactPage from './pages/ContactPage'
 import Admin from './pages/Admin'
 import './App.css'
 
-function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+function ScrollToLocation() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      if (location.hash) {
+        let targetId = location.hash.slice(1)
+
+        try {
+          targetId = decodeURIComponent(targetId)
+        } catch {
+          // Keep the original hash if it is not valid URI-encoded text.
+        }
+
+        const target = document.getElementById(targetId)
+        if (target) {
+          const navbarHeight = document.querySelector('.navbar')?.getBoundingClientRect().height ?? 72
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+          return
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [location.pathname, location.hash, location.key])
+
   return null
 }
 
@@ -23,7 +49,7 @@ function App() {
   return (
     <div className="app">
       {!isAdmin && <Navbar />}
-      <ScrollToTop />
+      <ScrollToLocation />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
