@@ -1,7 +1,44 @@
-import { useEffect, useState } from 'react'
 import './Testimonials.css'
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/uR7J6xdT0lyTPmnV1'
+
+const reviews = [
+  {
+    id: 'sindhuja-p',
+    author: 'Sindhuja P',
+    rating: 5,
+    date: 'Sep 2026',
+    text: "Chandni Ma'am's teaching was excellent. I could easily understand. The environment adds good vibes. Thank you.",
+  },
+  {
+    id: 'lalitha-simha',
+    author: 'Lalitha Simha',
+    rating: 5,
+    date: 'Jul 2026',
+    text: 'I would like to thank Mrs Chandini Ji, for being my mentor, instructor and guide throughout the Pranic Healing Session. The Course was very knowledgeable, insightful and presented in a scientific manner. The concepts were explained very clearly with practical techniques that were easy to understand and apply. It\'s a valuable learning experience that enhanced my understanding of energy, healing and overall well-being. I recommend this beautiful course to anyone looking to uplift and heal not only themselves but for the upliftment of humanity and spread the light of healing and happiness to all.',
+  },
+  {
+    id: 'ss',
+    author: 'SS',
+    rating: 5,
+    date: 'Feb 2026',
+    text: 'I attended a 2-day Basic Pranic Healing course with Chandni and had a very positive experience. Her explanations were clear, logical, and presented in a scientific manner, which made the concepts easy to understand and remember. The sessions were well paced and not overwhelming at all, especially for someone new to this field. I thoroughly enjoyed the course and learned a lot. The tips and techniques shared were simple, practical, and easy to incorporate into daily life. Overall, it was an insightful and enriching experience, and I would highly recommend her sessions to anyone curious about Pranic Healing.',
+  },
+  {
+    id: 'sudeep-sagar',
+    author: 'Sudeep Sagar',
+    rating: 5,
+    date: 'Feb 2026',
+    text: 'I recently completed the basic course and found it to be an excellent experience. Chandni\'s constant support and guidance made a significant difference throughout the learning journey. I highly recommend this place to anyone considering a Pranic Healing course.',
+  },
+  {
+    id: 'shobha-g',
+    author: 'Shobha G',
+    rating: 5,
+    date: 'Feb 2026',
+    text: 'Recently finished the 2days course by Chandni. It was a great experience and knowledge. Amazing session',
+  },
+]
 
 function initials(name) {
   return name
@@ -11,13 +48,6 @@ function initials(name) {
     .map((part) => part[0])
     .join('')
     .toUpperCase()
-}
-
-function reviewDate(value) {
-  return new Intl.DateTimeFormat('en-IN', {
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(value))
 }
 
 function Stars({ rating }) {
@@ -31,51 +61,6 @@ function Stars({ rating }) {
 }
 
 export default function Testimonials() {
-  const [reviewData, setReviewData] = useState({
-    reviews: [],
-    averageRating: null,
-    totalReviewCount: null,
-  })
-  const [status, setStatus] = useState('loading')
-
-  useEffect(() => {
-    const controller = new AbortController()
-
-    async function loadReviews() {
-      try {
-        const response = await fetch('/api/reviews', {
-          headers: { Accept: 'application/json' },
-          cache: 'no-store',
-          signal: controller.signal,
-        })
-        const data = await response.json()
-
-        if (!response.ok) throw new Error(data.error || 'Unable to load reviews')
-
-        setReviewData({
-          reviews: Array.isArray(data.reviews) ? data.reviews : [],
-          averageRating: data.averageRating,
-          totalReviewCount: data.totalReviewCount,
-        })
-        setStatus('ready')
-      } catch (error) {
-        if (error.name !== 'AbortError') {
-          setStatus((currentStatus) => (currentStatus === 'ready' ? currentStatus : 'error'))
-        }
-      }
-    }
-
-    loadReviews()
-    const refreshInterval = window.setInterval(loadReviews, 5 * 60 * 1000)
-
-    return () => {
-      controller.abort()
-      window.clearInterval(refreshInterval)
-    }
-  }, [])
-
-  const { reviews, averageRating, totalReviewCount } = reviewData
-
   return (
     <section id="testimonials" className="testimonials">
       <div className="testimonials__inner">
@@ -84,70 +69,29 @@ export default function Testimonials() {
           <h2 className="testimonials__title">Recent Stories from Our Community</h2>
           <div className="testimonials__source">
             <span className="testimonials__google" aria-hidden="true">G</span>
-            {averageRating && totalReviewCount ? (
-              <span><strong>{Number(averageRating).toFixed(1)}</strong> from {totalReviewCount} Google reviews</span>
-            ) : (
-              <span>Verified reviews from Google</span>
-            )}
+            <span><strong>4.9</strong> from 9 Google reviews</span>
             <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">View all reviews</a>
           </div>
         </div>
 
-        {status === 'loading' && (
-          <div className="testimonials__grid" aria-label="Loading Google reviews">
-            {Array.from({ length: 3 }, (_, index) => (
-              <div className="testimonial-card testimonial-card--loading" key={index} aria-hidden="true">
-                <div className="testimonial-card__loading-line testimonial-card__loading-line--short" />
-                <div className="testimonial-card__loading-line" />
-                <div className="testimonial-card__loading-line" />
-                <div className="testimonial-card__loading-line testimonial-card__loading-line--medium" />
+        <div className="testimonials__grid">
+          {reviews.map((review) => (
+            <article className="testimonial-card" key={review.id}>
+              <div className="testimonial-card__topline">
+                <Stars rating={review.rating} />
+                <span className="testimonial-card__date">{review.date}</span>
               </div>
-            ))}
-          </div>
-        )}
-
-        {status === 'ready' && reviews.length > 0 && (
-          <div className="testimonials__grid">
-            {reviews.map((review) => (
-              <article className="testimonial-card" key={review.id}>
-                <div className="testimonial-card__topline">
-                  <Stars rating={review.rating} />
-                  <span className="testimonial-card__date">{reviewDate(review.createdAt)}</span>
+              <p className="testimonial-card__text">{review.text}</p>
+              <div className="testimonial-card__author">
+                <div className="testimonial-card__avatar" aria-hidden="true">{initials(review.author)}</div>
+                <div>
+                  <div className="testimonial-card__name">{review.author}</div>
+                  <div className="testimonial-card__role">Google review</div>
                 </div>
-                <p className={`testimonial-card__text${review.text ? '' : ' testimonial-card__text--rating-only'}`}>
-                  {review.text || `Rated Savitur ${review.rating} stars on Google.`}
-                </p>
-                <div className="testimonial-card__author">
-                  {review.photoUrl ? (
-                    <img
-                      className="testimonial-card__avatar"
-                      src={review.photoUrl}
-                      alt=""
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <div className="testimonial-card__avatar" aria-hidden="true">{initials(review.author)}</div>
-                  )}
-                  <div>
-                    <div className="testimonial-card__name">{review.author}</div>
-                    <div className="testimonial-card__role">Google review</div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
-
-        {status === 'ready' && reviews.length === 0 && (
-          <div className="testimonials__notice">No Google reviews are available yet.</div>
-        )}
-
-        {status === 'error' && (
-          <div className="testimonials__notice">
-            Reviews could not be loaded right now.{' '}
-            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">Read them on Google</a>.
-          </div>
-        )}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
