@@ -109,7 +109,12 @@ export default function Contact() {
               </div>
               <div>
                 <div className="contact__detail-label">Email</div>
-                <div className="contact__detail-val">info@savitursanctuary.com</div>
+                <a
+                  href="mailto:debranichandni2022@gmail.com"
+                  className="contact__detail-val contact__detail-link"
+                >
+                  debranichandni2022@gmail.com
+                </a>
               </div>
             </div>
 
