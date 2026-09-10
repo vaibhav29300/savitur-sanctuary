@@ -11,7 +11,8 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'None',
     color: '#4a7c59',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80&fit=crop',
+    image: '/courses/basic-pranic-healing.jpg',
+    bookCover: true,
     description:
       'The entry point to the world of energy healing. You will learn to feel, scan, cleanse, and energise the energy body (aura) using your hands. This course covers the fundamental principles of Pranic Healing — the bioplasmic body, the major and minor chakras, and the step-by-step protocol to address common ailments.',
     whatYouLearn: [
@@ -31,7 +32,8 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#5b6bbf',
-    image: '/courses/advanced.svg',
+    image: '/courses/advanced-pranic-healing.jpg',
+    bookCover: true,
     description:
       'In this course you learn to use colour prana — significantly more potent than white prana — to produce rapid and dramatic healing results. Advanced techniques allow you to treat serious and chronic ailments that would ordinarily require many sessions at the basic level.',
     whatYouLearn: [
@@ -51,7 +53,8 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'Advanced Pranic Healing',
     color: '#7b5ea7',
-    image: '/courses/psychotherapy.svg',
+    image: '/courses/pranic-psychotherapy.jpg',
+    bookCover: true,
     description:
       'Emotional and psychological disorders are caused by negative thoughts and traumatic emotions lodged in the aura and chakras. This course teaches you to safely and effectively extract these from the affected energy centres, addressing phobias, traumas, addictions, stress, anxiety, depression, and more.',
     whatYouLearn: [
@@ -71,7 +74,8 @@ const courses = [
     duration: '2 Days',
     prerequisite: 'Basic Pranic Healing',
     color: '#c9a84c',
-    image: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=600&q=80&fit=crop',
+    image: '/courses/achieving-oneness.jpg',
+    bookCover: true,
     description:
       'One of the most profoundly transformative workshops, AOHS reveals the nature of your soul and its relationship with your incarnated personality. Through specific meditations and techniques you learn to accelerate the union of the lower self with the Higher Soul, facilitating rapid spiritual growth and inner illumination.',
     whatYouLearn: [
@@ -128,17 +132,24 @@ export default function Courses() {
               key={course.id}
               id={course.id}
             >
-              <div className="course-card__image" style={{ borderColor: `${course.color}44` }}>
+              <div
+                className={`course-card__image${course.bookCover ? ' course-card__image--book' : ''}`}
+                style={{ borderColor: `${course.color}44` }}
+              >
                 {/* Background photo */}
                 <img
                   src={course.image}
-                  alt={course.title}
+                  alt={course.bookCover ? `${course.title} book cover by Master Choa Kok Sui` : course.title}
                   className="course-card__photo"
                 />
                 {/* Colour-tinted overlay */}
                 <div
                   className="course-card__photo-overlay"
-                  style={{ background: `linear-gradient(170deg, ${course.color}55 0%, ${course.color}bb 100%)` }}
+                  style={{
+                    background: course.bookCover
+                      ? `linear-gradient(170deg, ${course.color}12 0%, ${course.color}38 72%, ${course.color}99 100%)`
+                      : `linear-gradient(170deg, ${course.color}55 0%, ${course.color}bb 100%)`,
+                  }}
                 />
 
                 <div className="course-card__level-badge" style={{ background: course.color }}>
