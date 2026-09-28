@@ -54,27 +54,6 @@ export default function PranicHealing() {
             </p>
           </div>
 
-          <div className="pranic__video-wrap">
-            <iframe
-              className="pranic__video"
-              src="https://www.youtube-nocookie.com/embed/jtOahTuWi1Y"
-              title="What is Pranic Healing?"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-            <p className="pranic__video-credit">
-              Video credit:{' '}
-              <a
-                href="https://www.youtube.com/watch?v=jtOahTuWi1Y"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Prana World
-              </a>
-            </p>
-          </div>
         </div>
 
       </div>

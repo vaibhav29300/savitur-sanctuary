@@ -43,6 +43,15 @@ export default function Admin() {
   const [photos, setPhotos] = useState([])
   const [loadingPhotos, setLoadingPhotos] = useState(false)
 
+  const [announcements, setAnnouncements] = useState([])
+  const [loadingAnnouncements, setLoadingAnnouncements] = useState(false)
+  const [announcementPreview, setAnnouncementPreview] = useState('')
+  const [announcementEyebrow, setAnnouncementEyebrow] = useState('')
+  const [announcementTitle, setAnnouncementTitle] = useState('')
+  const [announcementText, setAnnouncementText] = useState('')
+  const [savingAnnouncement, setSavingAnnouncement] = useState(false)
+  const [announcementNotice, setAnnouncementNotice] = useState(null)
+
   const [preview, setPreview] = useState('')
   const [caption, setCaption] = useState('')
   const [desc, setDesc] = useState('')
@@ -61,7 +70,22 @@ export default function Admin() {
     setLoadingPhotos(false)
   }, [])
 
-  useEffect(() => { if (loggedIn) loadPhotos() }, [loggedIn, loadPhotos])
+  const loadAnnouncements = useCallback(async () => {
+    setLoadingAnnouncements(true)
+    try {
+      const response = await fetch('/api/announcements')
+      const data = await response.json()
+      setAnnouncements(Array.isArray(data.announcements) ? data.announcements : [])
+    } catch { /* ignore */ }
+    setLoadingAnnouncements(false)
+  }, [])
+
+  useEffect(() => {
+    if (loggedIn) {
+      loadPhotos()
+      loadAnnouncements()
+    }
+  }, [loggedIn, loadPhotos, loadAnnouncements])
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -91,9 +115,14 @@ export default function Admin() {
     sessionStorage.removeItem(SESSION_KEY)
     setCreds(null)
     setPhotos([])
+    setAnnouncements([])
     setPreview('')
     setCaption('')
     setDesc('')
+    setAnnouncementPreview('')
+    setAnnouncementEyebrow('')
+    setAnnouncementTitle('')
+    setAnnouncementText('')
   }
 
   const onFile = async (e) => {
@@ -104,6 +133,79 @@ export default function Admin() {
       setPreview(await resizeImage(file))
     } catch {
       setNotice({ type: 'error', text: 'Could not read that image. Try another file.' })
+    }
+  }
+
+  const onAnnouncementFile = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setAnnouncementNotice(null)
+    try {
+      setAnnouncementPreview(await resizeImage(file))
+    } catch {
+      setAnnouncementNotice({ type: 'error', text: 'Could not read that image. Try another file.' })
+    }
+  }
+
+  const addAnnouncement = async () => {
+    if (!announcementTitle.trim() || !announcementText.trim()) return
+    setSavingAnnouncement(true)
+    setAnnouncementNotice(null)
+
+    try {
+      const response = await fetch('/api/announcements', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'add',
+          ...creds,
+          image: announcementPreview,
+          eyebrow: announcementEyebrow,
+          title: announcementTitle,
+          text: announcementText,
+        }),
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (response.ok) {
+        setAnnouncements(data.announcements || [])
+        setAnnouncementPreview('')
+        setAnnouncementEyebrow('')
+        setAnnouncementTitle('')
+        setAnnouncementText('')
+        setAnnouncementNotice({ type: 'success', text: 'Announcement added to the homepage.' })
+      } else {
+        if (response.status === 401) logout()
+        setAnnouncementNotice({ type: 'error', text: data.error || 'Could not add announcement.' })
+      }
+    } catch {
+      setAnnouncementNotice({ type: 'error', text: 'Network error while adding the announcement.' })
+    }
+
+    setSavingAnnouncement(false)
+  }
+
+  const removeAnnouncement = async (id) => {
+    if (!window.confirm('Remove this announcement from the homepage?')) return
+    setAnnouncementNotice(null)
+
+    try {
+      const response = await fetch('/api/announcements', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'delete', ...creds, id }),
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (response.ok) {
+        setAnnouncements(data.announcements || [])
+        setAnnouncementNotice({ type: 'success', text: 'Announcement removed.' })
+      } else {
+        if (response.status === 401) logout()
+        setAnnouncementNotice({ type: 'error', text: data.error || 'Could not remove announcement.' })
+      }
+    } catch {
+      setAnnouncementNotice({ type: 'error', text: 'Network error.' })
     }
   }
 
@@ -162,7 +264,7 @@ export default function Admin() {
       <div className="admin admin--center">
         <form className="admin-login" onSubmit={handleLogin}>
           <h1 className="admin-login__title">Savitur Admin</h1>
-          <p className="admin-login__sub">Sign in to manage the “Life at Savitur” gallery.</p>
+          <p className="admin-login__sub">Sign in to manage homepage announcements and gallery photos.</p>
           <label>Username
             <input
               type="text" autoComplete="username" required
@@ -190,9 +292,77 @@ export default function Admin() {
   return (
     <div className="admin">
       <header className="admin-bar">
-        <h1>Life at Savitur — Gallery</h1>
+        <h1>Savitur Website Admin</h1>
         <button className="admin-btn admin-btn--ghost" onClick={logout}>Sign Out</button>
       </header>
+
+      <section className="admin-card">
+        <h2>Add an Announcement</h2>
+        <div className="admin-upload">
+          <label className="admin-drop admin-drop--announcement">
+            {announcementPreview
+              ? <img src={announcementPreview} alt="Announcement preview" className="admin-drop__preview" />
+              : <span className="admin-drop__hint">Add a picture <span className="admin-optional">(optional)</span><br /><small>JPG, PNG or WEBP</small></span>}
+            <input type="file" accept="image/jpeg,image/png,image/webp" onChange={onAnnouncementFile} hidden />
+          </label>
+
+          <div className="admin-fields">
+            <label>Short Label <span className="admin-optional">(optional)</span>
+              <input type="text" placeholder="e.g. Monthly at the Centre"
+                value={announcementEyebrow} onChange={(e) => setAnnouncementEyebrow(e.target.value)} maxLength={60} />
+            </label>
+            <label>Title
+              <input type="text" placeholder="e.g. Full Moon Meditation"
+                value={announcementTitle} onChange={(e) => setAnnouncementTitle(e.target.value)} maxLength={100} />
+            </label>
+            <label>Description
+              <textarea placeholder="Share the date, time, venue, or other details"
+                value={announcementText} onChange={(e) => setAnnouncementText(e.target.value)} maxLength={300} rows={4} />
+            </label>
+            <button
+              className="admin-btn"
+              onClick={addAnnouncement}
+              disabled={!announcementTitle.trim() || !announcementText.trim() || savingAnnouncement}
+            >
+              {savingAnnouncement ? 'Adding…' : 'Add Announcement'}
+            </button>
+          </div>
+        </div>
+        {announcementNotice && <p className={`admin-${announcementNotice.type}`}>{announcementNotice.text}</p>}
+      </section>
+
+      <section className="admin-card">
+        <h2>Current Announcements {announcements.length > 0 && <span className="admin-count">{announcements.length}</span>}</h2>
+        {loadingAnnouncements ? (
+          <p className="admin-muted">Loading…</p>
+        ) : announcements.length === 0 ? (
+          <p className="admin-muted">No announcements are currently shown on the homepage.</p>
+        ) : (
+          <div className="admin-grid admin-grid--announcements">
+            {announcements.map((announcement) => (
+              <div className="admin-tile admin-tile--announcement" key={announcement.id}>
+                {announcement.imageUrl ? (
+                  <img src={announcement.imageUrl} alt="" />
+                ) : (
+                  <div className="admin-tile__placeholder">No picture</div>
+                )}
+                <div className="admin-tile__meta">
+                  <span>{announcement.eyebrow}</span>
+                  <strong>{announcement.title}</strong>
+                  <span>{announcement.text}</span>
+                </div>
+                <button
+                  className="admin-tile__del"
+                  onClick={() => removeAnnouncement(announcement.id)}
+                  aria-label={`Delete ${announcement.title}`}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
 
       <section className="admin-card">
         <h2>Add a Photo</h2>

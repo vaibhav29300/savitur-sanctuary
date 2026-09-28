@@ -312,6 +312,36 @@ export default function Contact() {
               </button>
             </form>
           )}
+
+          <div className="contact__or" aria-hidden="true">
+            <span>OR</span>
+          </div>
+
+          <div className="contact__qr">
+            <h3>Send Your Enquiry on WhatsApp</h3>
+            <p>Scan this QR to send your enquiry directly on WhatsApp.</p>
+            <a
+              href="https://wa.me/917045256527"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__qr-link"
+              aria-label="Open WhatsApp chat with Chandni"
+            >
+              <img
+                src="/whatsapp-enquiry-qr.jpeg"
+                alt="WhatsApp QR code for Chandni at Savitur Pranic Healing"
+                className="contact__qr-image"
+              />
+            </a>
+            <a
+              href="https://wa.me/917045256527"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact__qr-direct"
+            >
+              Open WhatsApp directly <span>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

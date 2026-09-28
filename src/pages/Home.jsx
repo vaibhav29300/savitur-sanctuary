@@ -4,19 +4,17 @@ import About from '../components/About'
 import PhotoGallery from '../components/PhotoGallery'
 import PranicHealing from '../components/PranicHealing'
 import MTHAnnouncements from '../components/MTHAnnouncements'
-import MTH from '../components/MTH'
 import Founder from '../components/Founder'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <CentreVideo />
+      <MTHAnnouncements />
       <About />
+      <CentreVideo />
       <PhotoGallery />
       <PranicHealing />
-      <MTHAnnouncements />
-      <MTH />
       <Founder />
     </>
   )

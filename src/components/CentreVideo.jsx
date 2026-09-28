@@ -1,39 +1,28 @@
-import { useEffect, useRef } from 'react'
 import './CentreVideo.css'
 
 export default function CentreVideo() {
-  const playerRef = useRef(null)
-
-  useEffect(() => {
-    const unmuteAfterInteraction = () => {
-      playerRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ event: 'command', func: 'unMute', args: [] }),
-        'https://www.youtube-nocookie.com',
-      )
-    }
-
-    window.addEventListener('pointerdown', unmuteAfterInteraction, { once: true })
-    window.addEventListener('keydown', unmuteAfterInteraction, { once: true })
-
-    return () => {
-      window.removeEventListener('pointerdown', unmuteAfterInteraction)
-      window.removeEventListener('keydown', unmuteAfterInteraction)
-    }
-  }, [])
-
   return (
     <section className="centre-video" aria-label="Introduction to Savitur Pranic Healing Centre">
       <div className="centre-video__inner">
         <div className="centre-video__frame">
           <iframe
-            ref={playerRef}
-            src="https://www.youtube-nocookie.com/embed/olZhUc3WgCI?autoplay=1&mute=1&playsinline=1&rel=0&enablejsapi=1"
-            title="Introduction to Savitur Pranic Healing Centre"
+            src="https://www.youtube-nocookie.com/embed/mh8tEfZ4ooo?rel=0"
+            title="Introduction to Pranic Healing"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
         </div>
+        <p className="centre-video__credit">
+          Video credit:{' '}
+          <a
+            href="https://www.youtube.com/@Globalpranichealing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pranic Healing – Institute for Inner Studies
+          </a>
+        </p>
       </div>
     </section>
   )

@@ -106,15 +106,13 @@ const services = [
     ),
     color: '#7b5ea7',
     title: 'Meditation Sessions',
-    tagline: 'Meditation on Twin Hearts sessions for peace, blessings, and spiritual growth',
+    tagline: 'The centre conducts MTH every full moon. Schedule for online MTH to be announced online.',
     items: [
       {
         name: 'Full Moon MTH',
-        note: 'The centre conducts MTH every full moon.',
       },
       {
         name: 'Online MTH',
-        note: 'Schedule for online MTH to be announced online.',
       },
     ],
     cta: 'Join a Meditation',

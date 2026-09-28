@@ -22,13 +22,12 @@ export default function Hero() {
       <div className="hero__content">
         <p className="hero__eyebrow">Savitur Centre · Bengaluru</p>
         <h1 className="hero__title">
-          Heal the Body.<br />
-          Calm the Mind.<br />
-          <em>Illuminate the Soul.</em>
+          Savitur Pranic Healing Centre<br />
+          <em>in Bengaluru</em>
         </h1>
         <p className="hero__subtitle">
-          A centre for Pranic Healing &amp; Arhatic Yoga — rooted in the
-          ancient wisdom of Grand Master Choa Kok Sui.
+          Heal the body. Calm the mind. Illuminate the soul. A centre for Pranic Healing &amp;
+          Arhatic Yoga — rooted in the ancient wisdom of Grand Master Choa Kok Sui.
         </p>
         <div className="hero__actions">
           <button
