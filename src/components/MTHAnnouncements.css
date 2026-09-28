@@ -1,0 +1,172 @@
+.mth-announcements {
+  padding: 6rem 2rem;
+  background: var(--cream);
+}
+
+.mth-announcements__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.mth-announcements__heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.mth-announcements__label {
+  margin-bottom: 0.65rem;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mth-announcements__heading h2 {
+  color: var(--navy);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+.mth-carousel {
+  min-height: 310px;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) 54px;
+  align-items: center;
+  gap: 1.25rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  color: var(--white);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(232, 201, 122, 0.22), transparent 32%),
+    linear-gradient(125deg, var(--navy) 0%, var(--dark-bg) 100%);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(42, 45, 94, 0.18);
+}
+
+.mth-carousel__content {
+  text-align: center;
+  animation: mth-carousel-in 0.45s ease both;
+}
+
+.mth-carousel__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.mth-carousel__content h3 {
+  margin-bottom: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+}
+
+.mth-carousel__content p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.mth-carousel__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  color: var(--gold-light);
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(232, 201, 122, 0.55);
+  transition: gap 0.2s, color 0.2s;
+}
+
+.mth-carousel__link:hover {
+  gap: 0.7rem;
+  color: var(--white);
+}
+
+.mth-carousel__arrow {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.mth-carousel__arrow:hover {
+  background: rgba(232, 201, 122, 0.18);
+  border-color: var(--gold-light);
+  transform: scale(1.05);
+}
+
+.mth-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+}
+
+.mth-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: rgba(42, 45, 94, 0.22);
+  border: 0;
+  border-radius: 999px;
+  transition: width 0.25s, background 0.25s;
+}
+
+.mth-carousel__dot--active {
+  width: 28px;
+  background: var(--gold);
+}
+
+@keyframes mth-carousel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .mth-announcements {
+    padding: 5rem 1.25rem;
+  }
+
+  .mth-carousel {
+    min-height: 350px;
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    border-radius: 16px;
+  }
+
+  .mth-carousel__arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mth-carousel__content {
+    animation: none;
+  }
+}
