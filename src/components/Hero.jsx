@@ -20,14 +20,15 @@ export default function Hero() {
       <div className="hero__vignette-bottom" />
 
       <div className="hero__content">
-        <p className="hero__eyebrow">Savitur Centre · Bengaluru</p>
+        <p className="hero__eyebrow">Pranic Healing · Meditation · Arhatic Yoga</p>
         <h1 className="hero__title">
-          Savitur Pranic Healing Centre<br />
-          <em>in Bengaluru</em>
+          Find Balance &amp; Inner Light at<br />
+          <em>Savitur</em>{' '}
+          <span className="hero__title-location">Pranic Healing Centre in Bengaluru</span>
         </h1>
         <p className="hero__subtitle">
-          Heal the body. Calm the mind. Illuminate the soul. A centre for Pranic Healing &amp;
-          Arhatic Yoga — rooted in the ancient wisdom of Grand Master Choa Kok Sui.
+          A nurturing space to heal the body, calm the mind, and illuminate the soul — guided by
+          the timeless wisdom of Grand Master Choa Kok Sui.
         </p>
         <div className="hero__actions">
           <button
