@@ -25,7 +25,7 @@ const offerings = [
     ),
     color: '#5b6bbf',
     title: 'Meditations',
-    description: 'Guided Twin Hearts Meditation sessions for peace, illumination, and planetary blessing — open to all levels.',
+    description: 'Meditation on Twin Hearts sessions for peace, illumination, and planetary blessing — open to all levels.',
     link: '/contact',
     linkText: 'Join a Session',
   },

@@ -14,10 +14,10 @@ const services = [
     title: 'Pranic Healing Courses',
     tagline: 'Basic Pranic Healing through Achieving Oneness with the Higher Soul',
     items: [
-      { name: 'Basic Pranic Healing', note: 'Foundation course — no prerequisites' },
+      { name: 'Basic Pranic Healing', note: 'Entry level course; open to 16+ years old' },
       { name: 'Advanced Pranic Healing', note: 'Colour prana & accelerated healing techniques' },
       { name: 'Pranic Psychotherapy', note: 'Healing emotional & psychological conditions' },
-      { name: 'Achieving Oneness with the Higher Soul (AOHS)', note: 'Meditation for soul realisation & spiritual growth' },
+      { name: 'Achieving Oneness with the Higher Soul (AOHS)', note: 'Entry level course; open to 16+ years old' },
     ],
     cta: 'View All Courses',
     ctaLink: '/courses',
@@ -106,19 +106,19 @@ const services = [
     ),
     color: '#7b5ea7',
     title: 'Meditation Sessions',
-    tagline: 'Guided group meditations for peace, blessings, and spiritual growth',
+    tagline: 'Meditation on Twin Hearts sessions for peace, blessings, and spiritual growth',
     items: [
       {
-        name: 'Twin Hearts Meditation (THM)',
-        note: 'A powerful meditation for peace, illumination, and planetary healing. Open to all — no prerequisites.',
+        name: 'Full Moon MTH',
+        note: 'The centre conducts MTH every full moon.',
       },
       {
-        name: 'Arhatic Yoga Meditations',
-        note: 'Advanced meditations for Arhatic Yoga practitioners to accelerate spiritual development.',
+        name: 'Online MTH',
+        note: 'Schedule for online MTH to be announced online.',
       },
     ],
     cta: 'Join a Meditation',
-    interest: 'Twin Hearts Meditation (THM)',
+    interest: 'Meditation on Twin Hearts (MTH)',
   },
   {
     id: 'nurturing',
@@ -133,12 +133,12 @@ const services = [
     tagline: 'Ongoing support for sustained healing and spiritual growth',
     items: [
       {
-        name: 'Individual Nurturing',
-        note: 'Personalised one-on-one sessions providing ongoing healing, guidance, and support for your growth.',
+        name: 'Basic Pranic Healing Nurturing',
+        note: 'We conduct nurturing sessions for Basic Pranic Healing every week.',
       },
       {
-        name: 'Group Nurturing',
-        note: 'Community sessions combining healing, sharing, and collective energy work in a supportive environment.',
+        name: 'Book Study Sessions',
+        note: 'We also conduct book study sessions (books by Master Choa and those recommended by him).',
       },
     ],
     cta: 'Enquire About Nurturing',

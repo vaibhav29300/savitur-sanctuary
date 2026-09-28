@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.about__inner--text-only {
+  max-width: 760px;
+  grid-template-columns: 1fr;
+}
+
 .about__image-wrap {
   position: relative;
 }

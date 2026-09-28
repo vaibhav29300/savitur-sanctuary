@@ -48,7 +48,6 @@ export default function Footer() {
             <Link to="/courses#advanced">Advanced Pranic Healing</Link>
             <Link to="/courses#psychotherapy">Pranic Psychotherapy</Link>
             <Link to="/courses#aohs">Achieving Oneness (AOHS)</Link>
-            <Link to="/courses#arhatic">Arhatic Yoga</Link>
           </nav>
         </div>
 
@@ -58,7 +57,7 @@ export default function Footer() {
             <Link to="/services#healings">Healing Sessions</Link>
             <Link to="/services#fengshui">Feng Shui Solutions</Link>
             <Link to="/services#property">Disputed Properties</Link>
-            <Link to="/services#meditation">Meditation (THM / AY)</Link>
+            <Link to="/services#meditation">Meditation (MTH)</Link>
             <Link to="/services#nurturing">Nurturing Sessions</Link>
           </nav>
         </div>

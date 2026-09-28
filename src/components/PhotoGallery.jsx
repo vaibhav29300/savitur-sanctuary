@@ -3,11 +3,6 @@ import './PhotoGallery.css'
 
 const DEFAULT_PHOTOS = [
   {
-    src: '/gallery/gallery-1.jpg',
-    caption: 'Pranic Healing Class',
-    desc: 'Students learning Pranic Healing techniques at our centre',
-  },
-  {
     src: '/gallery/gallery-2.jpg',
     caption: 'Guided Meditation Session',
     desc: 'Corporate wellness meditation at Signoff Pharmaceuticals',
@@ -16,11 +11,6 @@ const DEFAULT_PHOTOS = [
     src: '/gallery/gallery-3.jpg',
     caption: 'Mega Pranic Healing Camp',
     desc: 'World Health Day — Free healing camp across India',
-  },
-  {
-    src: '/gallery/gallery-4.jpg',
-    caption: 'Pranic Healing Class',
-    desc: 'Hands-on Pranic Healing training at the Savitur centre',
   },
 ]
 

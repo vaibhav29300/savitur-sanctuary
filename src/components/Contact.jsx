@@ -7,7 +7,6 @@ const COURSES = [
   'Advanced Pranic Healing',
   'Pranic Psychotherapy',
   'Achieving Oneness with the Higher Soul (AOHS)',
-  'Arhatic Yoga',
 ]
 
 const SERVICES = [
@@ -17,12 +16,20 @@ const SERVICES = [
   'Healing Session — Relationship',
   'Feng Shui Consultation (Home / Office)',
   'Healings for Disputed Properties',
-  'Twin Hearts Meditation (THM)',
+  'Meditation on Twin Hearts (MTH)',
   'Arhatic Yoga Meditation',
   'Nurturing Session',
 ]
 
-const INITIAL = { name: '', email: '', phone: '', service: '', message: '' }
+const INITIAL = {
+  name: '',
+  email: '',
+  phone: '',
+  service: '',
+  message: '',
+  consent: false,
+  company: '',
+}
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL)
@@ -38,7 +45,8 @@ export default function Contact() {
   }, [searchParams])
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
+    setForm({ ...form, [e.target.name]: value })
   }
 
   const handleSubmit = async (e) => {
@@ -110,10 +118,10 @@ export default function Contact() {
               <div>
                 <div className="contact__detail-label">Email</div>
                 <a
-                  href="mailto:debranichandni2022@gmail.com"
+                  href="mailto:savitur.pranichealing@gmail.com"
                   className="contact__detail-val contact__detail-link"
                 >
-                  debranichandni2022@gmail.com
+                  savitur.pranichealing@gmail.com
                 </a>
               </div>
             </div>
@@ -172,7 +180,7 @@ export default function Contact() {
             <div className="contact__success">
               <div className="contact__success-icon">✓</div>
               <h3>Enquiry Received!</h3>
-              <p>Thank you for reaching out. We will get back to you shortly.</p>
+              <p>Your details have been sent to us on WhatsApp. We will get back to you shortly.</p>
               <button className="contact__resend" onClick={() => setStatus('idle')}>
                 Send another enquiry
               </button>
@@ -199,6 +207,7 @@ export default function Contact() {
                     id="phone"
                     name="phone"
                     type="tel"
+                    required
                     placeholder="+91 00000 00000"
                     value={form.phone}
                     onChange={handleChange}
@@ -261,6 +270,33 @@ export default function Contact() {
                 />
               </div>
 
+              <div className="contact__honeypot" aria-hidden="true">
+                <label htmlFor="company">Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabIndex="-1"
+                  autoComplete="off"
+                  value={form.company}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <label className="contact__consent">
+                <input
+                  name="consent"
+                  type="checkbox"
+                  required
+                  checked={form.consent}
+                  onChange={handleChange}
+                  disabled={status === 'sending'}
+                />
+                <span>
+                  I agree to be contacted by Savitur through WhatsApp or phone about this enquiry.
+                </span>
+              </label>
+
               {status === 'error' && (
                 <p className="contact__error">
                   Something went wrong. Please try again or WhatsApp us at +91-7045256527.
@@ -271,7 +307,7 @@ export default function Contact() {
                 {status === 'sending' ? (
                   <><span className="contact__spinner" /> Sending…</>
                 ) : (
-                  'Send Enquiry'
+                  'Send Enquiry to WhatsApp'
                 )}
               </button>
             </form>
