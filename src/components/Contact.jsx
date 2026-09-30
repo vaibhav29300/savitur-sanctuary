@@ -76,7 +76,7 @@ export default function Contact() {
         {/* ── Left column: info + map ── */}
         <div className="contact__info">
           <p className="contact__label">— Get in Touch</p>
-          <h2 className="contact__title">Begin Your Healing Journey Today</h2>
+          <h1 className="contact__title">Contact Our Pranic Healing Centre in Bangalore</h1>
           <p className="contact__text">
             Ready to experience the profound benefits of Pranic Healing? Reach out to us to
             book a session, join a course, or simply learn more about our offerings.

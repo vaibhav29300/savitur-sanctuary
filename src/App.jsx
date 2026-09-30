@@ -8,6 +8,7 @@ import Courses from './pages/Courses'
 import Services from './pages/Services'
 import TestimonialsPage from './pages/TestimonialsPage'
 import ContactPage from './pages/ContactPage'
+import Whitefield from './pages/Whitefield'
 import Admin from './pages/Admin'
 import './App.css'
 
@@ -59,6 +60,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/pranic-healing-whitefield" element={<Whitefield />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>

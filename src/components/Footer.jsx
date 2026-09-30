@@ -59,6 +59,7 @@ export default function Footer() {
             <Link to="/services#property">Disputed Properties</Link>
             <Link to="/services#meditation">Meditation (MTH)</Link>
             <Link to="/services#nurturing">Nurturing Sessions</Link>
+            <Link to="/pranic-healing-whitefield">Pranic Healing Whitefield</Link>
           </nav>
         </div>
       </div>

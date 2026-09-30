@@ -22,13 +22,12 @@ export default function Hero() {
       <div className="hero__content">
         <p className="hero__eyebrow">Pranic Healing · Meditation · Arhatic Yoga</p>
         <h1 className="hero__title">
-          Find Balance &amp; Inner Light at<br />
-          <em>Savitur</em>{' '}
-          <span className="hero__title-location">Pranic Healing Centre in Bengaluru</span>
+          Pranic Healing in <em>Bangalore</em>
+          <span className="hero__title-location">Savitur Centre · Kannamangala</span>
         </h1>
         <p className="hero__subtitle">
-          A nurturing space to heal the body, calm the mind, and illuminate the soul — guided by
-          the timeless wisdom of Grand Master Choa Kok Sui.
+          A nurturing space for Pranic Healing sessions, courses, meditation and Arhatic Yoga —
+          guided by the teachings of Grand Master Choa Kok Sui.
         </p>
         <div className="hero__actions">
           <button

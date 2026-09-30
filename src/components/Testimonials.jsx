@@ -66,7 +66,7 @@ export default function Testimonials() {
       <div className="testimonials__inner">
         <div className="testimonials__header">
           <p className="testimonials__label">— Google Reviews</p>
-          <h2 className="testimonials__title">Recent Stories from Our Community</h2>
+          <h1 className="testimonials__title">Pranic Healing Reviews from Our Community</h1>
           <div className="testimonials__source">
             <span className="testimonials__google" aria-hidden="true">G</span>
             <span><strong>4.9</strong> from 9 Google reviews</span>

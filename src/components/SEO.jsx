@@ -1,37 +1,13 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-
-const SITE_URL = 'https://saviturpranichealing.com'
-const SITE_NAME = 'Savitur Pranic Healing Centre'
-const SOCIAL_IMAGE = `${SITE_URL}/logo.webp`
-
-const PAGE_META = {
-  '/': {
-    title: 'Savitur Pranic Healing Centre Bengaluru | Arhatic Yoga',
-    description: 'Savitur Pranic Healing Centre in Kannamangala, Bengaluru offers healing sessions, Pranic Healing courses, Meditation on Twin Hearts and Arhatic Yoga.',
-  },
-  '/services': {
-    title: 'Pranic Healing Services in Bengaluru | Savitur',
-    description: 'Explore Pranic Healing sessions, Meditation on Twin Hearts, Feng Shui consultations, nurturing sessions and healing camps at Savitur Bengaluru.',
-  },
-  '/courses': {
-    title: 'Pranic Healing Courses in Bengaluru | Savitur',
-    description: 'Join Pranic Healing certification courses in Bengaluru, from Basic and Advanced Pranic Healing to Pranic Psychotherapy and higher spiritual courses.',
-  },
-  '/contact': {
-    title: 'Contact Savitur Pranic Healing Centre Bengaluru',
-    description: 'Contact Savitur Pranic Healing Centre in Kannamangala, Bengaluru for healing sessions, courses, meditation sessions and enquiries.',
-  },
-  '/testimonials': {
-    title: 'Pranic Healing Testimonials | Savitur Bengaluru',
-    description: 'Read experiences from students and clients of Savitur Pranic Healing Centre in Bengaluru.',
-  },
-  '/admin': {
-    title: 'Savitur Website Admin',
-    description: 'Private administration area for the Savitur website.',
-    noindex: true,
-  },
-}
+import {
+  SITE_NAME,
+  SOCIAL_IMAGE,
+  getCanonicalUrl,
+  getPageMeta,
+  getStructuredData,
+  normalizePath,
+} from '../seoConfig'
 
 function upsertMeta(attribute, key, content) {
   let element = document.head.querySelector(`meta[${attribute}="${key}"]`)
@@ -53,13 +29,24 @@ function upsertCanonical(href) {
   element.setAttribute('href', href)
 }
 
+function upsertStructuredData(data) {
+  let element = document.head.querySelector('script[data-savitur-schema]')
+  if (!element) {
+    element = document.createElement('script')
+    element.type = 'application/ld+json'
+    element.dataset.saviturSchema = 'true'
+    document.head.appendChild(element)
+  }
+  element.textContent = JSON.stringify(data)
+}
+
 export default function SEO() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const normalizedPath = pathname !== '/' ? pathname.replace(/\/$/, '') : '/'
-    const meta = PAGE_META[normalizedPath] || PAGE_META['/']
-    const canonicalUrl = normalizedPath === '/' ? `${SITE_URL}/` : `${SITE_URL}${normalizedPath}`
+    const normalizedPath = normalizePath(pathname)
+    const meta = getPageMeta(normalizedPath)
+    const canonicalUrl = getCanonicalUrl(normalizedPath)
 
     document.title = meta.title
     upsertCanonical(canonicalUrl)
@@ -79,6 +66,7 @@ export default function SEO() {
     upsertMeta('name', 'twitter:title', meta.title)
     upsertMeta('name', 'twitter:description', meta.description)
     upsertMeta('name', 'twitter:image', SOCIAL_IMAGE)
+    upsertStructuredData(getStructuredData(normalizedPath))
   }, [pathname])
 
   return null

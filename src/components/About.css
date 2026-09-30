@@ -127,6 +127,19 @@
   color: var(--navy-light);
 }
 
+.about__link--secondary {
+  margin-left: 1.5rem;
+}
+
+@media (max-width: 560px) {
+  .about__link--secondary {
+    display: flex;
+    width: fit-content;
+    margin-top: 1.1rem;
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .about__inner {
     grid-template-columns: 1fr;
